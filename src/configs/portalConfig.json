@@ -1,23 +1,11 @@
 {
-    "portalID": "sampo",
+    "portalID": "finestlaw",
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "perspective1",
-            "perspective2",
-            "perspective3",
-            "perspective4",
-            "fullTextSearch"
+            "statutes"
         ],
-        "onlyInstancePages": [
-            "manuscripts",
-            "collections",
-            "works",
-            "expressions",
-            "events",
-            "actors",
-            "places"
-        ]
+        "onlyInstancePages": []
     },
     "localeConfig": {
         "defaultLocale": "en",
@@ -45,7 +33,7 @@
     },
     "knowledgeGraphMetadataConfig": {
         "showTable": false,
-        "perspective": "perspective1" 
+        "perspective": "statutes" 
     },
     "layoutConfig": {
         "colorPalette": {
