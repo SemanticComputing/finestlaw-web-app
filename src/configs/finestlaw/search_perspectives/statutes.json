@@ -1,14 +1,14 @@
 {
     "id": "statutes",
     "endpoint": {
-        "url": "https://ldf.fi/mmm/sparql",
+        "url": "https://ldf.fi/lawsampo/sparql",
         "useAuth": false,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
-    "sparqlQueriesFile": "SparqlQueriesPerspective1.js",
-    "baseURI": "http://ldf.fi/mmm",
-    "URITemplate": "<BASE_URI>/work/<LOCAL_ID>",
-    "facetClass": "frbroo:F1_Work",
+    "sparqlQueriesFile": "SparqlQueriesStatutes.js",
+    "baseURI": "http://ldf.fi/lawsampo",
+    "URITemplate": "<BASE_URI>/<LOCAL_ID>",
+    "facetClass": "lss:Statute",
     "frontPageImage": "main_page/works-452x262.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
@@ -23,13 +23,13 @@
                 "component": "ResultTable",
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "workProperties",
+                "propertiesQueryBlock": "statuteProperties",
                 "pagesize": 10,
                 "sortBy": null,
                 "sortDirection": null
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "workProperties",
+                "propertiesQueryBlock": "statuteProperties",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -80,68 +80,12 @@
             "minWidth": 250
         },
         {
-            "id": "author",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 250
-        },
-        {
-            "id": "language",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": true,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 150
-        },
-        {
-            "id": "expression",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 150,
-            "onlyOnInstancePage": true
-        },
-        {
-            "id": "manuscript",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 250
-        },
-        {
-            "id": "productionTimespan",
-            "valueType": "object",
+            "id": "statuteType",
+            "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 250
-        },
-        {
-            "id": "collection",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 200
-        },
-        {
-            "id": "source",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": true,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 200
+            "sortValues": false,
+            "numberedList": false
         }
     ],
     "facets": {
@@ -152,64 +96,16 @@
             "sortByPredicate": "skos:prefLabel",
             "textQueryProperty": "skos:prefLabel"
         },
-        "author": {
+        "statuteType": {
             "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "^frbroo:R16_initiated/(mmm-schema:carried_out_by_as_possible_author|mmm-schema:carried_out_by_as_author)",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "^frbroo:R16_initiated/(mmm-schema:carried_out_by_as_possible_author|mmm-schema:carried_out_by_as_author)/skos:prefLabel",
-            "sortDirection": "desc"
-        },
-        "language": {
-            "barChartButton": true,
-            "containerClass": "ten",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "facetType": "list",
             "filterType": "uriFilter",
             "pieChartButton": true,
-            "predicate": "^frbroo:R19_created_a_realisation_of/frbroo:R17_created/crm:P72_has_language",
-            "searchField": true,
+            "predicate": "eli:type_document",
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^frbroo:R19_created_a_realisation_of/frbroo:R17_created/crm:P72_has_language/skos:prefLabel",
-            "sortDirection": "desc"
-        },
-        "manuscript": {
-            "sortByPredicate": "^mmm-schema:manuscript_work/skos:prefLabel"
-        },
-        "productionTimespan": {
-            "containerClass": "four",
-            "endProperty": "crm:P82b_end_of_the_end",
-            "facetType": "timespan",
-            "filterType": "timespanFilter",
-            "max": null,
-            "min": null,
-            "predicate": "^mmm-schema:manuscript_work/^crm:P108_has_produced/crm:P4_has_time-span",
-            "sortByAscPredicate": "^mmm-schema:manuscript_work/^crm:P108_has_produced/crm:P4_has_time-span/crm:P82a_begin_of_the_begin",
-            "sortByDescPredicate": "^mmm-schema:manuscript_work/^crm:P108_has_produced/crm:P4_has_time-span/crm:P82b_end_of_the_end",
-            "startProperty": "crm:P82a_begin_of_the_begin"
-        },
-        "collection": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "^mmm-schema:manuscript_work/crm:P46i_forms_part_of",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "^mmm-schema:manuscript_work/crm:P46i_forms_part_of/skos:prefLabel",
-            "sortDirection": "desc"
-        },
-        "source": {
-            "containerClass": "three",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "pieChartButton": true,
-            "predicate": "dct:source",
-            "sortBy": "instanceCount",
-            "sortByPredicate": "dct:source/skos:prefLabel",
+            "sortByPredicate": "eli:type_document/skos:prefLabel",
             "sortDirection": "desc"
         }
     }
