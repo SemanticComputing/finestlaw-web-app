@@ -1,7 +1,7 @@
 {
     "id": "statutes",
     "endpoint": {
-        "url": "https://ldf.fi/lawsampo/sparql",
+        "url": "https://ldf.fi/finestlaw/sparql",
         "useAuth": false,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
