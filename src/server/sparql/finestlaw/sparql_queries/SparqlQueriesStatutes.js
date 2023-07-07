@@ -36,6 +36,11 @@ export const statuteProperties = `
       ?id eli:transposes ?euDirective__id .
       ?euDirective_id skos:prefLabel ?euDirective__prefLabel . 
     }
+    UNION
+    {
+      ?id lss:text ?statuteText . 
+      FILTER (LANG(?statuteText) = 'en')
+    }
 `
 
 export const knowledgeGraphMetadataQuery = `

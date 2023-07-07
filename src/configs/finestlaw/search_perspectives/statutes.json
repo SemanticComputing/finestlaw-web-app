@@ -71,6 +71,15 @@
             "onlyOnInstancePage": true
         },
         {
+            "id": "statuteText",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "onlyOnInstancePage": true
+        },
+        {
             "id": "prefLabel",
             "valueType": "object",
             "makeLink": true,
