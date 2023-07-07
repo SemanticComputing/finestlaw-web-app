@@ -1,5 +1,9 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-# Sampo-UI
+# FINESTLAW Web App
+
+An application for searching Finnish and Estonian concolidated law.
+
+## Based on Sampo-UI
 
 A framework for building user interfaces for semantic portals. 
 
