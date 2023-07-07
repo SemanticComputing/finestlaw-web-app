@@ -2,7 +2,7 @@
     "id": "statutes",
     "endpoint": {
         "url": "https://ldf.fi/finestlaw/sparql",
-        "useAuth": false,
+        "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesStatutes.js",
@@ -81,8 +81,40 @@
         },
         {
             "id": "statuteType",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false
+        },
+        {
+            "id": "enforcementDate",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false
+        },
+        {
+            "id": "keyword",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false
+        },
+        {
+            "id": "euDirective",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false
+        },
+        {
+            "id": "source",
+            "valueType": "string",
+            "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false
@@ -90,15 +122,16 @@
     ],
     "facets": {
         "prefLabel": {
+            "sortByPredicate": "skos:prefLabel"
+        },
+        "textSearch": {
             "containerClass": "one",
             "facetType": "text",
-            "filterType": "textFilter",
-            "sortByPredicate": "skos:prefLabel",
-            "textQueryProperty": "skos:prefLabel"
+            "filterType": "textFilter"
         },
         "statuteType": {
             "containerClass": "ten",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "facetType": "list",
             "filterType": "uriFilter",
             "pieChartButton": true,
@@ -106,6 +139,50 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "eli:type_document/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "enforcementDate": {
+            "containerClass": "ten",
+            "facetType": "hierarchical",
+            "filterType": "uriFilter",
+            "parentProperty": "skos:broader",
+            "predicate": "lss:timespan",
+            "searchField": true,
+            "sortByPredicate": "lss:timespan/skos:prefLabel"
+        },
+        "keyword": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "fe:eurovoc_keyword",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "fe:eurovoc_keyword/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "euDirective": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "eli:transposes",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "eli:transposes/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "source": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "dc:source",
+            "literal": true,
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "dc:source",
             "sortDirection": "desc"
         }
     }
