@@ -24,5 +24,6 @@ export const prefixes = `
   PREFIX ls: <http://ldf.fi/lawsampo/>
   PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
   PREFIX fe: <http://ldf.fi/finest/>
+  PREFIX fes: <http://ldf.fi/schema/finestlaw/>
   PREFIX dc: <http://purl.org/dc/elements/1.1/>
   `

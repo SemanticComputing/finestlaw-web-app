@@ -164,11 +164,11 @@
             "facetType": "list",
             "filterType": "uriFilter",
             "pieChartButton": true,
-            "predicate": "fe:eurovoc_keyword",
+            "predicate": "fes:eurovoc_keyword",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "fe:eurovoc_keyword/skos:prefLabel",
+            "sortByPredicate": "fes:eurovoc_keyword/skos:prefLabel",
             "sortDirection": "desc"
         },
         "euDirective": {
