@@ -34,7 +34,8 @@ export const statuteProperties = `
     UNION
     {
       ?id eli:transposes ?euDirective__id .
-      ?euDirective_id skos:prefLabel ?euDirective__prefLabel . 
+      ?euDirective__id skos:prefLabel ?euDirective__prefLabel .
+      BIND(?euDirective__id as ?euDirective__dataProviderUrl)
     }
     UNION
     {
