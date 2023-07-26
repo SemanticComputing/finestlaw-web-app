@@ -5,6 +5,7 @@ import { has } from 'lodash'
 // import LineChartSotasurmat from '../perspectives/sotasurmat/LineChartSotasurmat'
 const ResultTable = lazy(() => import('./ResultTable'))
 const InstancePageTable = lazy(() => import('../main_layout/InstancePageTable'))
+const InstancePageContextualContent = lazy(() => import('../main_layout/InstancePageContextualContent'))
 const ReactVirtualizedList = lazy(() => import('./ReactVirtualizedList'))
 const LeafletMap = lazy(() => import('./LeafletMap'))
 const Deck = lazy(() => import('./Deck'))
@@ -109,6 +110,29 @@ const ResultClassRoute = props => {
         }
       }
       routeComponent = <InstancePageTable {...instanceTableProps} />
+      break
+    }
+    case 'InstancePageContextualContent': {
+      const { instanceTableData } = perspectiveState
+      const ccProps = {
+        data: instanceTableData.contentHTML,
+        tableOfContents: instanceTableData.firstLevel,
+        tableOfContentsConfig: perspectiveState.properties.find(item => item.id === 'firstLevel'),
+        hasParts: instanceTableData.hasParts,
+        hasChapters: instanceTableData.hasChapters,
+        HTMLParserTask: 'addAnnotationTooltips',
+        referencedTerm: instanceTableData.referencedTerm,
+        wordcloudData: instanceTableData.referencedTerm,
+        wordcloudMaxWords: 40,
+        layoutConfig
+      }
+      routeComponent = (
+        <Route
+          path={path}
+          render={() =>
+            <InstancePageContextualContent {...ccProps} />}
+        />
+      )
       break
     }
     case 'LeafletMap': {

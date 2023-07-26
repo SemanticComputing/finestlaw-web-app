@@ -76,6 +76,7 @@
     }
   },
   "tabs": {
+    "content": "contents",
     "table": "table",
     "map": "map",
     "production_places": "production places",

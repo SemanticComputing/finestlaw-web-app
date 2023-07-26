@@ -42,6 +42,11 @@ export const statuteProperties = `
       ?id lss:text ?statuteText . 
       FILTER (LANG(?statuteText) = 'en')
     }
+    UNION
+    {
+      ?id lss:html ?html_ .
+      BIND(REPLACE(?html_, "<html>|</html>|<head />|<body>|</body>", "") as ?contentHTML)
+    }
 `
 
 export const knowledgeGraphMetadataQuery = `

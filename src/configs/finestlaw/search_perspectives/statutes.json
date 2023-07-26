@@ -1,7 +1,7 @@
 {
     "id": "statutes",
     "endpoint": {
-        "url": "https://ldf.fi/finestlaw/sparql",
+        "url": "http://localhost:3068/ds/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
@@ -15,7 +15,7 @@
         "prefLabel"
     ],
     "defaultTab": "table",
-    "defaultInstancePageTab": "table",
+    "defaultInstancePageTab": "content",
     "resultClasses": {
         "statutes": {
             "paginatedResultsConfig": {
@@ -31,14 +31,20 @@
             "instanceConfig": {
                 "propertiesQueryBlock": "statuteProperties",
                 "instancePageResultClasses": {
-                    "instancePageTable": {
+                    "instancePageContextualContent": {
                         "tabID": 0,
+                        "component": "InstancePageContextualContent",
+                        "tabPath": "content",
+                        "tabIcon": "Subject"
+                    },
+                    "instancePageTable": {
+                        "tabID": 1,
                         "component": "InstancePageTable",
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
                     },
                     "instancePageExport": {
-                        "tabID": 1,
+                        "tabID": 2,
                         "component": "Export",
                         "tabPath": "export",
                         "tabIcon": "CloudDownload",
@@ -140,7 +146,7 @@
         },
         "statuteType": {
             "containerClass": "ten",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
             "facetType": "list",
             "filterType": "uriFilter",
             "pieChartButton": true,
@@ -162,6 +168,7 @@
         "keyword": {
             "containerClass": "ten",
             "facetType": "list",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
             "filterType": "uriFilter",
             "pieChartButton": true,
             "predicate": "fes:eurovoc_keyword",

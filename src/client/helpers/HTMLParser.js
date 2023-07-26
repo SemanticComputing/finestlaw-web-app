@@ -39,13 +39,15 @@ export default class HTMLParser {
         chapterNumber = `chapter_${chapterNumber.replace(' luku', '')}_`
         chapterNumber = chapterNumber.replace(/\s/g, '')
       } else if (node.parent.attribs.class === 'chapter') {
-        chapterNumber = node.parent.children[0].children[0].data
+        chapterNumber = node.parent.children[0]?.children[0]?.data.toLowerCase() ?? ""
         chapterNumber = `chapter_${chapterNumber.replace(' luku', '')}_`
         chapterNumber = chapterNumber.replace(/\s/g, '')
       } else {
         chapterNumber = ''
       }
-      const sectionItemIdentifier = node.children[0].children[0].data
+      
+      const sectionItemIdentifier = node.children[0]?.children[0]?.data ?? "" 
+
       let sectionNumber
       if (sectionItemIdentifier.includes('§')) {
         sectionNumber = sectionItemIdentifier.replace(/\s/g, '').replace('§', '')
