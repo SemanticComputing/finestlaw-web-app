@@ -1,4 +1,4 @@
-const perspectiveID = "statutes";
+const perspectiveID = 'statutes'
 
 const getSectionLabel = (labelVar) => {
   return `
@@ -10,8 +10,8 @@ const getSectionLabel = (labelVar) => {
         ?section_prefLabel_
       ) as ${labelVar}
     )
-`;
-};
+`
+}
 
 const sectionBlock = `
   UNION
@@ -26,7 +26,7 @@ const sectionBlock = `
                                           skos:prefLabel ?section_prefLabel_ .
     BIND(CONCAT("Osa ", ?firstLevel__id) as ?firstLevel__prefLabel)
     BIND(CONCAT(?firstLevel__secondLevel__id, " luku") as ?firstLevel__secondLevel__prefLabel)
-    ${getSectionLabel("?firstLevel__secondLevel__section__prefLabel")}
+    ${getSectionLabel('?firstLevel__secondLevel__section__prefLabel')}
     BIND(?firstLevel__secondLevel__id as ?firstLevel__secondLevel__section__chapterNumber)
     BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?firstLevel__secondLevel__section__dataProviderUrl)
     BIND(true as ?hasParts)
@@ -41,7 +41,7 @@ const sectionBlock = `
                              lss:section_number_int ?firstLevel__section__sectionNumberInt ;
                              skos:prefLabel ?section_prefLabel_ .
     BIND(CONCAT(?firstLevel__id, " luku") as ?firstLevel__prefLabel)
-    ${getSectionLabel("?firstLevel__section__prefLabel")}
+    ${getSectionLabel('?firstLevel__section__prefLabel')}
     BIND(?firstLevel__id as ?firstLevel__section__chapterNumber)
     BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?firstLevel__section__dataProviderUrl)
     BIND(false as ?hasParts)
@@ -56,7 +56,7 @@ const sectionBlock = `
     ?firstLevel__id lss:section_number_int ?firstLevel__sectionNumberInt ;
                     lss:section_number ?firstLevel__sectionNumber ;
                     skos:prefLabel ?section_prefLabel_ .
-    ${getSectionLabel("?firstLevel__prefLabel")}
+    ${getSectionLabel('?firstLevel__prefLabel')}
     BIND(?firstLevel__sectionNumberInt as ?firstLevel__integer)
     BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?firstLevel__dataProviderUrl)
     BIND(false as ?hasParts)
@@ -66,7 +66,7 @@ const sectionBlock = `
       ?firstLevel__id ?prop [] .
     }
   }
-`;
+`
 
 export const statuteProperties = `
     {
@@ -107,16 +107,11 @@ export const statuteProperties = `
     }
     UNION
     {
-      ?id lss:text ?statuteText . 
-      FILTER (LANG(?statuteText) = 'en')
-    }
-    UNION
-    {
       ?id lss:html ?html_ .
       BIND(REPLACE(?html_, "<html>|</html>|<head />|<body>|</body>", "") as ?contentHTML)
     }
     ${sectionBlock}
-`;
+`
 
 export const knowledgeGraphMetadataQuery = `
   SELECT * 
@@ -131,4 +126,4 @@ export const knowledgeGraphMetadataQuery = `
                       mmm-schema:data_provider_url ?databaseDump__dataProviderUrl ;
                       dct:modified ?databaseDump__modified .
   }
-`;
+`
