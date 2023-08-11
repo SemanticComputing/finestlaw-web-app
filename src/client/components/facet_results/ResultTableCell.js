@@ -5,20 +5,43 @@ import ObjectListCollapsible from './ObjectListCollapsible'
 import StringList from './StringList'
 import SimpleReactLightbox from 'simple-react-lightbox'
 import ImageGallerySRL from '../main_layout/ImageGallerySRL'
+import SectionOfALawListCollapsible from './SectionOfALawListCollapsible'
 
-const ResultTableCell = props => {
+const ResultTableCell = (props) => {
   const {
-    data, tableData, valueType, makeLink, externalLink, sortValues, sortBy, sortByConvertDataTypeTo,
-    numberedList, minWidth, height, container, columnId, expanded, linkAsButton, collapsedMaxWords, showSource,
-    sourceExternalLink, renderAsHTML, HTMLParserTask, referencedTerm, previewImageHeight,
-    onExpandClick, showExtraCollapseButton, rowId, shortenLabel = false
+    data,
+    tableData,
+    valueType,
+    makeLink,
+    externalLink,
+    sortValues,
+    sortBy,
+    sortByConvertDataTypeTo,
+    numberedList,
+    minWidth,
+    height,
+    container,
+    columnId,
+    expanded,
+    linkAsButton,
+    collapsedMaxWords,
+    showSource,
+    sourceExternalLink,
+    renderAsHTML,
+    HTMLParserTask,
+    referencedTerm,
+    previewImageHeight,
+    onExpandClick,
+    showExtraCollapseButton,
+    rowId,
+    shortenLabel = false,
   } = props
   let cellContent = null
   const cellStyle = {
     paddingTop: 3,
     paddingBottom: 3,
     ...(height && { height }),
-    ...(minWidth && { minWidth })
+    ...(minWidth && { minWidth }),
   }
   switch (valueType) {
     case 'object':
@@ -44,6 +67,27 @@ const ResultTableCell = props => {
         />
       )
       break
+    case 'sectionOfALaw':
+      cellContent = (
+        <SectionOfALawListCollapsible
+          data={data}
+          hasParts={props.hasParts === 'true'}
+          hasChapters={props.hasChapters === 'true'}
+          makeLink={makeLink}
+          externalLink={externalLink}
+          sortValues={sortValues}
+          sortBy={sortBy}
+          numberedList={numberedList}
+          columnId={columnId}
+          collapsible
+          expanded={expanded}
+          linkAsButton={linkAsButton}
+          showSource={showSource}
+          sourceExternalLink={sourceExternalLink}
+          maxHeight={200}
+        />
+      )
+      break
     case 'string':
       cellContent = (
         <StringList
@@ -63,23 +107,20 @@ const ResultTableCell = props => {
       )
       break
     case 'image':
-      cellContent = data && data !== '-'
-        ? <SimpleReactLightbox><ImageGallerySRL data={data} previewImageHeight={previewImageHeight} /></SimpleReactLightbox>
-        : ''
+      cellContent =
+        data && data !== '-' ? (
+          <SimpleReactLightbox>
+            <ImageGallerySRL data={data} previewImageHeight={previewImageHeight} />
+          </SimpleReactLightbox>
+        ) : (
+          ''
+        )
   }
   if (container === 'div') {
-    return (
-      <div>
-        {cellContent}
-      </div>
-    )
+    return <div>{cellContent}</div>
   }
   if (container === 'cell') {
-    return (
-      <TableCell style={cellStyle}>
-        {cellContent}
-      </TableCell>
-    )
+    return <TableCell style={cellStyle}>{cellContent}</TableCell>
   }
 }
 
@@ -98,7 +139,7 @@ ResultTableCell.propTypes = {
   maxWidth: PropTypes.number,
   previewImageHeight: PropTypes.number,
   showSource: PropTypes.bool,
-  sourceExternalLink: PropTypes.bool
+  sourceExternalLink: PropTypes.bool,
 }
 
 export default ResultTableCell

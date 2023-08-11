@@ -13,40 +13,40 @@ import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
 import InfoIcon from '@mui/icons-material/InfoOutlined'
 
-const styles = theme => ({
+const styles = (theme) => ({
   instanceTable: {
     maxWidth: 1200,
     width: '100%',
     [theme.breakpoints.down('lg')]: {
       tableLayout: 'fixed',
-      overflowWrap: 'break-word'
+      overflowWrap: 'break-word',
     },
-    borderTop: '1px solid rgba(224, 224, 224, 1);'
+    borderTop: '1px solid rgba(224, 224, 224, 1);',
   },
   divider: {
     marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
   sahaButton: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
   },
   spinnerContainer: {
     display: 'flex',
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   labelCell: {
     [theme.breakpoints.down('lg')]: {
-      paddingRight: 0
+      paddingRight: 0,
     },
     [theme.breakpoints.up('md')]: {
-      minWidth: 280
-    }
+      minWidth: 280,
+    },
   },
   tooltip: {
-    marginTop: -3
+    marginTop: -3,
   },
   expandCell: {
     paddingRight: 0,
@@ -54,29 +54,29 @@ const styles = theme => ({
     paddingBottom: 0,
     width: 32,
     [theme.breakpoints.down('lg')]: {
-      paddingLeft: 0
-    }
+      paddingLeft: 0,
+    },
   },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest
-    })
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   expandOpen: {
-    transform: 'rotate(180deg)'
-  }
+    transform: 'rotate(180deg)',
+  },
 })
 
 /**
  * A component for generating a table based on data about an entity.
  */
 class InstancePageTable extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     const expandedRows = new Set()
-    props.properties.forEach(prop => {
+    props.properties.forEach((prop) => {
       if (prop.expandedOnInstancePage) {
         expandedRows.add(prop.id)
       }
@@ -90,16 +90,16 @@ class InstancePageTable extends React.Component {
         perspectiveID: this.props.perspectiveConfig.id,
         resultClass: this.props.resultClass,
         facetClass: this.props.facetClass,
-        uri: this.props.uri
+        uri: this.props.uri,
       })
     }
   }
 
-  handleExpandRow = rowId => event => this.updateExpanedRows(rowId)
+  handleExpandRow = (rowId) => (event) => this.updateExpanedRows(rowId)
 
-  handleExpandRowFromChildComponent = rowId => this.updateExpanedRows(rowId)
+  handleExpandRowFromChildComponent = (rowId) => this.updateExpanedRows(rowId)
 
-  updateExpanedRows = rowId => {
+  updateExpanedRows = (rowId) => {
     const expandedRows = this.state.expandedRows
     if (expandedRows.has(rowId)) {
       expandedRows.delete(rowId)
@@ -115,12 +115,13 @@ class InstancePageTable extends React.Component {
     if (isArray) {
       hasExpandableContent = true
     }
-    if (!isArray &&
-        data &&
-        data !== '-' &&
-        config.valueType === 'string' &&
-        config.collapsedMaxWords &&
-        data.split(' ').length > config.collapsedMaxWords
+    if (
+      !isArray &&
+      data &&
+      data !== '-' &&
+      config.valueType === 'string' &&
+      config.collapsedMaxWords &&
+      data.split(' ').length > config.collapsedMaxWords
     ) {
       hasExpandableContent = true
     }
@@ -132,15 +133,28 @@ class InstancePageTable extends React.Component {
     const perspectiveID = perspectiveConfig.id
     return (
       <>
-        {data &&
-          <Table className={classes.instanceTable} size='small'>
+        {data && (
+          <Table className={classes.instanceTable} size="small">
             <TableBody>
-              {properties.map(row => {
+              {properties.map((row) => {
                 const label = intl.get(`perspectives.${perspectiveID}.properties.${row.id}.label`)
                 const description = intl.get(`perspectives.${perspectiveID}.properties.${row.id}.description`)
                 const {
-                  id, valueType, makeLink, externalLink, sortValues, sortBy, sortByConvertDataTypeTo, numberedList, minWidth,
-                  linkAsButton, collapsedMaxWords, showSource, sourceExternalLink, renderAsHTML, HTMLParserTask
+                  id,
+                  valueType,
+                  makeLink,
+                  externalLink,
+                  sortValues,
+                  sortBy,
+                  sortByConvertDataTypeTo,
+                  numberedList,
+                  minWidth,
+                  linkAsButton,
+                  collapsedMaxWords,
+                  showSource,
+                  sourceExternalLink,
+                  renderAsHTML,
+                  HTMLParserTask,
                 } = row
                 let { previewImageHeight } = row
                 if (screenSize === 'xs' || screenSize === 'sm') {
@@ -151,29 +165,26 @@ class InstancePageTable extends React.Component {
                   <TableRow key={row.id}>
                     <TableCell className={classes.labelCell}>
                       {label}
-                      <Tooltip
-                        className={classes.tooltip}
-                        title={description}
-                        enterDelay={300}
-                      >
-                        <IconButton size='large'>
+                      <Tooltip className={classes.tooltip} title={description} enterDelay={300}>
+                        <IconButton size="large">
                           <InfoIcon />
                         </IconButton>
                       </Tooltip>
                     </TableCell>
                     <TableCell className={classes.expandCell}>
-                      {this.hasExpandableContent({ data: data[id], config: row }) &&
+                      {this.hasExpandableContent({ data: data[id], config: row }) && (
                         <IconButton
                           className={clsx(classes.expand, {
-                            [classes.expandOpen]: expanded
+                            [classes.expandOpen]: expanded,
                           })}
                           onClick={this.handleExpandRow(row.id)}
                           aria-expanded={expanded}
-                          aria-label='Show more'
-                          size='large'
+                          aria-label="Show more"
+                          size="large"
                         >
                           <ExpandMoreIcon />
-                        </IconButton>}
+                        </IconButton>
+                      )}
                     </TableCell>
                     <ResultTableCell
                       key={id}
@@ -189,7 +200,7 @@ class InstancePageTable extends React.Component {
                       numberedList={numberedList}
                       minWidth={minWidth}
                       previewImageHeight={previewImageHeight}
-                      container='cell'
+                      container="cell"
                       expanded={expanded}
                       onExpandClick={this.handleExpandRowFromChildComponent}
                       shortenLabel={false}
@@ -203,10 +214,10 @@ class InstancePageTable extends React.Component {
                     />
                   </TableRow>
                 )
-              }
-              )}
+              })}
             </TableBody>
-          </Table>}
+          </Table>
+        )}
       </>
     )
   }
@@ -216,7 +227,7 @@ InstancePageTable.propTypes = {
   classes: PropTypes.object.isRequired,
   resultClass: PropTypes.string.isRequired,
   data: PropTypes.object,
-  properties: PropTypes.array.isRequired
+  properties: PropTypes.array.isRequired,
 }
 
 export const InstanceHomePageTableComponent = InstancePageTable
