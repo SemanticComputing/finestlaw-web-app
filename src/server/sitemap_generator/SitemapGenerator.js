@@ -3,10 +3,7 @@ import { createWriteStream } from 'fs'
 import { resolve } from 'path'
 import { createGzip } from 'zlib'
 import { has } from 'lodash'
-import {
-  SitemapAndIndexStream,
-  SitemapStream
-} from 'sitemap'
+import { SitemapAndIndexStream, SitemapStream } from 'sitemap'
 import { runSelectQuery } from '../sparql/SparqlApi'
 
 const { sitemapConfig } = backendSearchConfig
@@ -31,25 +28,25 @@ for (let [resultClass, config] of Object.entries(backendSearchConfig)) {
       perspectiveID: resultClass,
       hasSearchPerspective,
       rdfType,
-      instancePageDefaultTab
+      instancePageDefaultTab,
     })
   }
 }
 
-const mapURLs = sparqlBindings => {
-  const results = sparqlBindings.map(b => {
+const mapURLs = (sparqlBindings) => {
+  const results = sparqlBindings.map((b) => {
     return createSitemapEntry({ path: b.path.value })
   })
   return results
 }
 
-const getURLs = async resultClasses => {
+const getURLs = async (resultClasses) => {
   const sitemapStream = new SitemapAndIndexStream({
     limit: 10000, // defaults to 45k
     // SitemapAndIndexStream will call this user provided function every time
     // it needs to create a new sitemap file. You merely need to return a stream
     // for it to write the sitemap urls to and the expected url where that sitemap will be hosted
-    getSitemapStream: index => {
+    getSitemapStream: (index) => {
       const sitemapStream = new SitemapStream({ hostname: sitemapConfig.baseUrl })
       const fileName = `sitemap-${index}.xml.gz`
 
@@ -58,7 +55,7 @@ const getURLs = async resultClasses => {
         .pipe(createWriteStream(resolve(`${sitemapConfig.outputDir}/${fileName}`))) // write it to sitemap-NUMBER.xml.gz
 
       return [`${sitemapConfig.sitemapUrl}/${fileName}`, sitemapStream]
-    }
+    },
   })
 
   sitemapStream
@@ -80,13 +77,13 @@ const getURLs = async resultClasses => {
     }
     const response = await queryInstancePageURLs(resultClass)
     // Add instance page URLs to sitemap
-    response.data.forEach(item => sitemapStream.write(item))
+    response.data.forEach((item) => sitemapStream.write(item))
   }
 
   sitemapStream.end()
 }
 
-const queryInstancePageURLs = config => {
+const queryInstancePageURLs = (config) => {
   const { endpoint } = config
   let q = sitemapConfig.sitemapInstancePageQuery.replace('<RESULT_CLASS>', config.rdfType)
   q = q.replace('<PERSPECTIVE>', config.perspectiveID)
@@ -96,7 +93,7 @@ const queryInstancePageURLs = config => {
     endpoint: endpoint.url,
     useAuth: endpoint.useAuth,
     resultMapper: mapURLs,
-    resultFormat: 'json'
+    resultFormat: 'json',
   })
 }
 
@@ -106,8 +103,9 @@ const createSitemapEntry = ({ path }) => {
     url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}`,
     links: [
       { lang: sitemapConfig.langPrimary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langPrimary}${path}` },
-      { lang: sitemapConfig.langSecondary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langSecondary}${path}` }
-    ]
+      { lang: sitemapConfig.langSecondary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langSecondary}${path}` },
+      { lang: sitemapConfig.langTertiary, url: `${sitemapConfig.baseUrl}/${sitemapConfig.langTertiary}${path}` },
+    ],
   }
   return entry
 }

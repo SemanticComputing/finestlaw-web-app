@@ -309,11 +309,13 @@ const fetchFacetEpic = (action$, state$) => action$.pipe(
     const facets = state[`${facetClass}Facets`].facets
     const facet = facets[facetID]
     const { sortBy = null, sortDirection = null } = facet
+    const langTag = state.options.currentLocale
     const params = stateToUrl({
       facets,
       sortBy,
       sortDirection,
-      constrainSelf
+      constrainSelf,
+      langTag
     })
     const requestUrl = `${apiUrl}/faceted-search/${action.facetClass}/facet/${facetID}`
     return ajax({

@@ -143,7 +143,7 @@
     },
     "statuteType": {
       "containerClass": "ten",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
       "facetType": "list",
       "filterType": "uriFilter",
       "pieChartButton": true,
@@ -165,7 +165,7 @@
     "keyword": {
       "containerClass": "ten",
       "facetType": "list",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
       "filterType": "uriFilter",
       "pieChartButton": true,
       "predicate": "fes:eurovoc_keyword",
@@ -177,6 +177,7 @@
     },
     "euDirective": {
       "containerClass": "ten",
+      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
       "facetType": "list",
       "filterType": "uriFilter",
       "predicate": "eli:transposes",
