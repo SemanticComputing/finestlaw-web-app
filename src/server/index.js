@@ -194,7 +194,8 @@ createBackendSearchConfig().then(backendSearchConfig => {
         sortDirection: body.sortDirection,
         constraints: body.constraints,
         resultFormat: 'json',
-        constrainSelf: body.constrainSelf
+        constrainSelf: body.constrainSelf,
+        langTag: body.langTag
       })
       res.json(data)
     } catch (error) {

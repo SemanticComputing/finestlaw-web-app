@@ -24,10 +24,11 @@ export const getFacet = async ({
   sortDirection = null,
   constraints,
   resultFormat,
-  constrainSelf
+  constrainSelf,
+  langTag
 }) => {
   const facetConfig = backendSearchConfig[facetClass].facets[facetID]
-  const { endpoint, defaultConstraint = null, langTag = null } = backendSearchConfig[facetClass]
+  const { endpoint, defaultConstraint = null} = backendSearchConfig[facetClass]
   // choose query template and result mapper:
   let q = ''
   let mapper = null
