@@ -9,7 +9,7 @@
   "baseURI": "http://ldf.fi/lawsampo",
   "URITemplate": "<BASE_URI>/<LOCAL_ID>",
   "facetClass": "lss:Statute",
-  "frontPageImage": "main_page/works-452x262.jpg",
+  "frontPageImage": "main_page/statutes.png",
   "searchMode": "faceted-search",
   "defaultActiveFacets": ["prefLabel"],
   "defaultTab": "table",

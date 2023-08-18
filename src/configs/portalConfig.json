@@ -56,10 +56,14 @@
     "topBar": {
       "logoImage": "logos/logo.png",
       "logoTextTransform": "none",
+      "logoImageHeight": 30,
       "hideLogoTextOnMobile": true,
       "showLanguageButton": true,
       "feedbackLink": "https://link.webropolsurveys.com/...",
       "externalInstructions": false,
+      "instructions": false,
+      "info": false,
+      "feedback": false,
       "externalAboutPage": false,
       "reducedHeight": 48,
       "defaultHeight": 64,
@@ -79,7 +83,7 @@
       ]
     },
     "mainPage": {
-      "bannerImage": "main_page/mmm-banner.jpg",
+      "bannerImage": "main_page/mmm-banner.png",
       "bannerBackround": "linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45) ), url(<BANNER_IMAGE_URL)",
       "bannerMobileHeight": 150,
       "bannerReducedHeight": 220,

@@ -18,6 +18,7 @@ import TopBarLanguageButton from './TopBarLanguageButton'
 import Divider from '@mui/material/Divider'
 import { has } from 'lodash'
 import secoLogo from '../../img/logos/seco-logo-48x50.png'
+import { color } from '@amcharts/amcharts5'
 
 /**
  * Responsive app bar with a search field, perspective links, info links and a language
@@ -232,7 +233,7 @@ const TopBar = props => {
                   [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
                     height: props.layoutConfig.topBar.logoImageHeight || 40
                   },
-                  marginRight: theme.spacing(1)
+                  marginRight: theme.spacing(1),
                 })}
               />}
             {!topBar.hideLogoText &&
@@ -303,18 +304,20 @@ const TopBar = props => {
                 borderLeft: '2px solid white'
               })}
             />
-            {renderDesktopTopMenuItem({
+            { topBar.feedback && renderDesktopTopMenuItem({
               id: 'feedback',
               externalUrl: props.layoutConfig.topBar.feedbackLink,
               label: intl.get('topBar.feedback')
             })}
-            <TopBarInfoButton rootUrl={props.rootUrl} layoutConfig={layoutConfig} />
+            {
+              topBar.info && <TopBarInfoButton rootUrl={props.rootUrl} layoutConfig={layoutConfig} />
+            }
             {topBar.externalInstructions && renderDesktopTopMenuItem({
               id: 'instructions',
               externalUrl: intl.get('topBar.instructionsUrl'),
               label: intl.get('topBar.instructions')
             })}
-            {!topBar.externalInstructions &&
+            {topBar.instructions && !topBar.externalInstructions &&
               <Button
                 component={AdapterNavLink}
                 to={`${props.rootUrl}/instructions`}
