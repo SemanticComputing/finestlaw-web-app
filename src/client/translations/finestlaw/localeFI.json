@@ -82,6 +82,9 @@
     "rowsPerPage": "Riviä sivulla",
     "of": "of"
   },
+  "firstLevel": {
+    "tableOfContents": "Sisällysluettelo"
+  },
   "exportToYasgui": "avaa tuloskysely yasgui-editorissa",
   "openInLinkedDataBrowser": "avaa linkitetyn datan selaimessa",
   "resultsAsCSV": "lataa tulokset CSV taulukkona",

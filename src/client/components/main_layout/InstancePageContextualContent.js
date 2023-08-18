@@ -7,6 +7,7 @@ import HTMLParser from '../../helpers/HTMLParser'
 import Typography from '@mui/material/Typography'
 import { useLocation } from 'react-router-dom'
 import { has } from 'lodash'
+import intl from 'react-intl-universal'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -133,7 +134,7 @@ const InstancePageContextualContent = props => {
           {tableOfContents &&
             <Paper className={classes.tableOfContents}>
               <>
-                <Typography variant='h6' component='h2'>Voimassa olevat pykälät</Typography>
+                <Typography variant='h6' component='h2'>{intl.get('firstLevel.tableOfContents')}</Typography>
                 <SectionOfALawListCollapsible
                   data={tableOfContents}
                   hasParts={hasParts === 'true'}

@@ -82,6 +82,9 @@
     "rowsPerPage": "Rida lehel",
     "of": "of"
   },
+  "firstLevel": {
+    "tableOfContents": "Sisukord"
+  },
   "exportToYasgui": "avage yasgui redaktoris tulemuste päring",
   "openInLinkedDataBrowser": "avab lingitud andmed brauseris",
   "resultsAsCSV": "laadige tulemused alla CSV-tabelina",
