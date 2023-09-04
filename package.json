@@ -37,6 +37,7 @@
     "apexcharts": "^3.33.0",
     "axios": "^0.25.0",
     "buffer": "^6.0.3",
+    "country-flag-icons": "^1.5.7",
     "cytoscape": "^3.12.1",
     "cytoscape-panzoom": "^2.5.3",
     "date-fns": "^2.19.0",

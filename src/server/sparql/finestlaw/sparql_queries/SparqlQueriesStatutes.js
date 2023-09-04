@@ -71,6 +71,7 @@ const sectionBlock = `
 export const statuteProperties = `
     {
       ?id skos:prefLabel ?prefLabel__id .
+      ?id dc:source ?prefLabel__source .
       BIND(?prefLabel__id AS ?prefLabel__prefLabel)
 
       # create link for React Router:
