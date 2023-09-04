@@ -127,3 +127,25 @@ export const knowledgeGraphMetadataQuery = `
                       dct:modified ?databaseDump__modified .
   }
 `
+
+export const statutesByYearQuery = `
+SELECT DISTINCT ?category 
+(count(?statuteFIN) as ?FIN) 
+(count(?statuteEST) as ?EST)
+WHERE {
+  <FILTER>    
+  { 
+    ?statuteFIN dc:source "FIN" ;
+        lss:timespan ?category_ ;
+           a lss:Statute .
+  } UNION {
+    ?statuteEST dc:source "EST" ;
+              lss:timespan ?category_ ;
+           a lss:Statute .
+  }
+  ?category_ skos:prefLabel ?category .
+  FILTER (?category!="1900-1999")
+}
+GROUP BY ?category 
+ORDER BY ?category
+`

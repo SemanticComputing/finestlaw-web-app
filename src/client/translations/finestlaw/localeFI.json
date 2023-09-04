@@ -61,11 +61,10 @@
     },
     "lineChart": {
       "tooltip": "Viivakaavio",
-      "productionTimespan": {
+      "language": {
         "title": "Säädöksiä vuosittain",
         "xaxisTitle": "Vuosi",
-        "yaxisTitle": "Säädösten lukumäärä",
-        "seriesTitle": "Säädösten lukumäärä"
+        "yaxisTitle": "Säädösten lukumäärä"
       }
     }
   },

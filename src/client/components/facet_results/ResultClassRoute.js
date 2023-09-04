@@ -252,6 +252,12 @@ const ResultClassRoute = props => {
     }
     case 'ApexCharts': {
       const { pageType = 'facetResults' } = resultClassConfig
+      const chartTitle = intl.get("facetBar.lineChart.language.title")
+      const chartXaxisTitle = intl.get("facetBar.lineChart.language.xaxisTitle")
+      const chartYaxisTitle = intl.get("facetBar.lineChart.language.yaxisTitle")
+      resultClassConfig.title = chartTitle
+      resultClassConfig.xaxisTitle = chartXaxisTitle
+      resultClassConfig.yaxisTitle = chartYaxisTitle
       const apexProps = {
         portalConfig,
         perspectiveConfig: perspective,
