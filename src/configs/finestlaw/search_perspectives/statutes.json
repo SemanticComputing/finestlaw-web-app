@@ -22,7 +22,7 @@
         "tabPath": "table",
         "tabIcon": "CalendarViewDay",
         "propertiesQueryBlock": "statuteProperties",
-        "pagesize": 10,
+        "pagesize": 20,
         "sortBy": null,
         "sortDirection": null
       },
