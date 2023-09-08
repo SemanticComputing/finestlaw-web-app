@@ -137,18 +137,20 @@ export const knowledgeGraphMetadataQuery = `
 
 export const statutesByYearQuery = `
 SELECT DISTINCT ?category 
-(count(?statuteFIN) as ?FIN) 
-(count(?statuteEST) as ?EST)
+(count(?statuteFIN) as ?Finland) 
+(count(?statuteEST) as ?Estonia)
 WHERE {
   <FILTER>    
   { 
-    ?statuteFIN dc:source "FIN" ;
+    ?statute dc:source "FIN" ;
         lss:timespan ?category_ ;
-           a lss:Statute .
+        a lss:Statute .
+    BIND(?statute AS ?statuteFIN)
   } UNION {
-    ?statuteEST dc:source "EST" ;
-              lss:timespan ?category_ ;
-           a lss:Statute .
+    ?statute dc:source "EST" ;
+        lss:timespan ?category_ ;
+        a lss:Statute .
+    BIND(?statute AS ?statuteEST)
   }
   ?category_ skos:prefLabel ?category .
   FILTER (?category!="1900-1999")
