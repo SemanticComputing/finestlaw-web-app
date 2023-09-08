@@ -60,9 +60,9 @@
         "width": 2
       },
       "xaxisTickAmount": 20,
-      "title": "Säädöksiä vuosittain",
-      "xaxisTitle": "Vuosi",
-      "yaxisTitle": "Säädösten lukumäärä",
+      "title": "", 
+      "xaxisTitle": "",
+      "yaxisTitle": "",
       "tabPath": "by_year",
       "tabIcon": "ShowChart",
       "sparqlQuery": "statutesByYearQuery",

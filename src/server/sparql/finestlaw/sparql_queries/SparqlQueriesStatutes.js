@@ -93,6 +93,7 @@ export const statuteProperties = `
     {
       ?id lss:timespan ?enforcementDate__id .
       ?enforcementDate__id skos:prefLabel ?enforcementDate__prefLabel . 
+      FILTER (?enforcementDate__prefLabel!="1900-1999")
     }
     UNION
     {
