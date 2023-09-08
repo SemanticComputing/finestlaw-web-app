@@ -160,6 +160,10 @@
         "source": {
           "label": "Allikas",
           "description": "Seaduste allikas."
+        },
+        "sourceLink": {
+          "label": "Link algallikale",
+          "description": "Link algallikale"
         }
       } 
     }

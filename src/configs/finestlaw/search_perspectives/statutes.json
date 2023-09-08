@@ -153,6 +153,15 @@
       "externalLink": false,
       "sortValues": false,
       "numberedList": false
+    },
+    {
+      "id": "sourceLink",
+      "valueType": "object",
+      "onlyOnInstancePage": true,
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": false,
+      "numberedList": false
     }
   ],
   "facets": {

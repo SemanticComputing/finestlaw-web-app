@@ -160,6 +160,10 @@
         "source": {
           "label": "Source",
           "description": "The source of the legislations."
+        },
+        "sourceLink": {
+          "label": "Link to the original source",
+          "description": "Link to the original source"
         }
       } 
     }

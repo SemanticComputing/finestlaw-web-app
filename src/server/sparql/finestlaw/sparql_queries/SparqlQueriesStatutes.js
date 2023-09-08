@@ -111,6 +111,12 @@ export const statuteProperties = `
       ?id lss:html ?html_ .
       BIND(REPLACE(?html_, "<html>|</html>|<head />|<body>|</body>", "") as ?contentHTML)
     }
+    UNION
+    {
+      ?id lss:finlex_url ?sourceLink__id .
+      BIND('SourceLink' as ?sourceLink__prefLabel)
+      BIND(?sourceLink__id as ?sourceLink__dataProviderUrl)
+    }
     ${sectionBlock}
 `
 

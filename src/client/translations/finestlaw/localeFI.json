@@ -160,6 +160,10 @@
         "source": {
           "label": "Lähde",
           "description": "Lakien lähde."
+        },
+        "sourceLink": {
+          "label": "Linkki alkuperäiseen lähteeseen",
+          "description": "Linkki alkuperäiseen lähteeseen"
         }
       } 
     }
