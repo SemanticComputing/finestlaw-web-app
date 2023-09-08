@@ -35,6 +35,7 @@ const ResultTableCell = (props) => {
     showExtraCollapseButton,
     rowId,
     shortenLabel = false,
+    enableCountryFlag
   } = props
   let cellContent = null
   const cellStyle = {
@@ -64,6 +65,7 @@ const ResultTableCell = (props) => {
           linkAsButton={linkAsButton}
           showSource={showSource}
           sourceExternalLink={sourceExternalLink}
+          enableCountryFlag={enableCountryFlag}
         />
       )
       break

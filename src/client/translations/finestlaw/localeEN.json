@@ -61,11 +61,10 @@
     },
     "lineChart": {
       "tooltip": "Line chart",
-      "productionTimespan": {
-        "title": "Manuscript production by decade",
-        "xaxisTitle": "Decade",
-        "yaxisTitle": "Manuscript count",
-        "seriesTitle": "Manuscript count"
+      "language": {
+        "title": "Annual legislations",
+        "xaxisTitle": "Year",
+        "yaxisTitle": "Number of legislations"
       }
     }
   },

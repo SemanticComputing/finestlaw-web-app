@@ -22,7 +22,7 @@
         "tabPath": "table",
         "tabIcon": "CalendarViewDay",
         "propertiesQueryBlock": "statuteProperties",
-        "pagesize": 10,
+        "pagesize": 20,
         "sortBy": null,
         "sortDirection": null
       },
@@ -51,8 +51,30 @@
         }
       }
     },
-    "export": {
+    "statutesByYear": {
       "tabID": 1,
+      "component": "ApexCharts",
+      "createChartData": "createMultipleLineChartData",
+      "stroke": {
+        "curve": "straight",
+        "width": 2
+      },
+      "xaxisTickAmount": 20,
+      "title": "Säädöksiä vuosittain",
+      "xaxisTitle": "Vuosi",
+      "yaxisTitle": "Säädösten lukumäärä",
+      "tabPath": "by_year",
+      "tabIcon": "ShowChart",
+      "sparqlQuery": "statutesByYearQuery",
+      "facetClass": "statutes",
+      "filterTarget": "statute",
+      "resultMapper": "mapMultipleLineChart",
+      "resultMapperConfig": {
+        "fillEmptyValues": true
+      }
+    },
+    "export": {
+      "tabID": 2,
       "component": "Export",
       "tabPath": "export",
       "tabIcon": "CloudDownload",
@@ -81,7 +103,8 @@
       "externalLink": false,
       "sortValues": true,
       "numberedList": false,
-      "minWidth": 250
+      "minWidth": 250,
+      "enableCountryFlag": true
     },
     {
       "id": "statuteType",

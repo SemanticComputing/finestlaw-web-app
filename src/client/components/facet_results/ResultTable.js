@@ -190,7 +190,8 @@ class ResultTable extends React.Component {
     const dataCells = this.props.data.properties.map(column => {
       const {
         id, valueType, makeLink, externalLink, sortValues, sortBy, sortByConvertDataTypeTo, numberedList, minWidth,
-        height, linkAsButton, collapsedMaxWords, showExtraCollapseButton, sourceExternalLink, renderAsHTML, HTMLParserTask
+        height, linkAsButton, collapsedMaxWords, showExtraCollapseButton, sourceExternalLink, renderAsHTML, HTMLParserTask, 
+        enableCountryFlag,
       } = column
       let { previewImageHeight } = column
       if (screenSize === 'xs' || screenSize === 'sm') {
@@ -251,6 +252,7 @@ class ResultTable extends React.Component {
           renderAsHTML={renderAsHTML}
           HTMLParserTask={HTMLParserTask}
           referencedTerm={columnData.referencedTerm}
+          enableCountryFlag={enableCountryFlag}
         />
       )
     })

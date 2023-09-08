@@ -61,11 +61,10 @@
     },
     "lineChart": {
       "tooltip": "Joondiagramm",
-      "productionTimespan": {
+      "language": {
         "title": "Määrused igal aastal",
         "xaxisTitle": "Aasta",
-        "yaxisTitle": "Määruste arv",
-        "seriesTitle": "Määruste arv"
+        "yaxisTitle": "Määruste arv"
       }
     }
   },

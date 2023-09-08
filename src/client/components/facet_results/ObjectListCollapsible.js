@@ -8,6 +8,7 @@ import ObjectListItem from './ObjectListItem'
 import ObjectListItemSources from './ObjectListItemSources'
 import ObjectListItemEvent from './ObjectListItemEvent'
 import classNames from 'classnames'
+import { FI, EE } from 'country-flag-icons/react/3x2'
 
 const styles = () => ({
   resultTableList: props => ({
@@ -25,16 +26,24 @@ const styles = () => ({
   },
   threeDots: {
     cursor: 'pointer'
+  },
+  countryFlagIcon: {
+    height: 14,
+    marginRight: 8,
+    boxShadow: "2px 2px #cacaca"
+  },
+  dataContatiner: {
+    display: "flex",
+    alignItems: "center"
   }
 })
 
 const ObjectListCollapsible = props => {
   const {
     sortValues, sortBy, sortByConvertDataTypeTo, makeLink, externalLink, linkAsButton, columnId, showSource,
-    sourceExternalLink, numberedList, collapsedMaxWords, classes, shortenLabel
+    sourceExternalLink, numberedList, collapsedMaxWords, classes, shortenLabel, enableCountryFlag
   } = props
   let { data } = props
-
   const sortList = data => {
     if (has(props, 'columnId') && props.columnId.endsWith('Timespan')) {
       data = data.sort((a, b) => {
@@ -58,6 +67,16 @@ const ObjectListCollapsible = props => {
     return data
   }
 
+  const renderCountryFlag = (source) => {
+      if (source === "FIN") {
+        return <div><FI title="Finland" className={classes.countryFlagIcon}/></div>
+      } else if (source === "EST") {
+        return <div><EE title="Finland" className={classes.countryFlagIcon}/></div>
+      } else {
+        return null
+      }
+  }
+
   const renderItem = ({ addThreeDots, itemData, isFirstValue = false }) => {
     if (columnId === 'event') {
       return (
@@ -72,7 +91,7 @@ const ObjectListCollapsible = props => {
       )
     } else {
       return (
-        <>
+        <>  
           <ObjectListItem
             data={itemData}
             shortenLabel={shortenLabel}
@@ -81,6 +100,7 @@ const ObjectListCollapsible = props => {
             linkAsButton={linkAsButton}
             isFirstValue={isFirstValue}
             collapsedMaxWords={collapsedMaxWords}
+            enableCountryFlag={enableCountryFlag}
           />
           {addThreeDots &&
             <span className={classes.threeDots} onClick={() => props.onExpandClick(props.rowId)}> ...</span>}
@@ -119,15 +139,21 @@ const ObjectListCollapsible = props => {
   } else if (Array.isArray(data)) {
     data = sortValues ? sortList(data) : data
     return (
-      <>
+      <div className={classes.dataContatiner}>
+        {enableCountryFlag && renderCountryFlag(data[0].source)}
         {!props.expanded && renderItem({ addThreeDots: true, itemData: data[0], isFirstValue: true })}
         <Collapse in={props.expanded} timeout='auto' unmountOnExit>
           {numberedList ? renderNumberedList(data) : renderBulletedList(data)}
         </Collapse>
-      </>
+      </div>
     )
   } else {
-    return renderItem({ addThreeDots: shortenLabel, itemData: data })
+    return (
+      <div className={classes.dataContatiner}>
+        {enableCountryFlag && renderCountryFlag(data.source)}
+        {renderItem({ addThreeDots: shortenLabel, itemData: data })}
+      </div>
+    )
   }
 }
 
@@ -142,7 +168,8 @@ ObjectListCollapsible.propTypes = {
   columnId: PropTypes.string.isRequired,
   linkAsButton: PropTypes.bool,
   showSource: PropTypes.bool,
-  shortenLabel: PropTypes.bool.isRequired
+  shortenLabel: PropTypes.bool.isRequired,
+  enableCountryFlag: PropTypes.bool
 }
 
 export default withStyles(styles)(ObjectListCollapsible)
