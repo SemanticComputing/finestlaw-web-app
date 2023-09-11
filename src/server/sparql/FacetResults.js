@@ -17,7 +17,8 @@ export const getPaginatedResults = ({
   constraints,
   sortBy,
   sortDirection,
-  resultFormat
+  resultFormat,
+  propertyLangTag
 }) => {
   let q = facetResultSetQuery
   const perspectiveConfig = backendSearchConfig[resultClass]
@@ -74,6 +75,9 @@ export const getPaginatedResults = ({
   q = q.replace(/<FACET_CLASS>/g, facetClass)
   q = q.replace('<PAGE>', `LIMIT ${pagesize} OFFSET ${page * pagesize}`)
   q = q.replace('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
+  if (propertyLangTag) {
+    q = q.replace(/<LANG>/g, propertyLangTag)
+  }
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
   }

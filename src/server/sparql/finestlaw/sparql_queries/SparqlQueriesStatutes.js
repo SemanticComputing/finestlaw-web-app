@@ -84,6 +84,7 @@ export const statuteProperties = `
     {
       ?id eli:type_document ?statuteType__id .
       ?statuteType__id skos:prefLabel ?statuteType__prefLabel . 
+      FILTER(LANG(?statuteType__prefLabel) = '<LANG>')
     }
     UNION
     {
