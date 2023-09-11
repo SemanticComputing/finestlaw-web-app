@@ -73,6 +73,7 @@ export const statuteProperties = `
       ?id skos:prefLabel ?prefLabel__id .
       ?id dc:source ?prefLabel__source .
       BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+      FILTER(LANG(?prefLabel__id) = '<LANG>')
 
       # create link for React Router:
       BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?prefLabel__dataProviderUrl)
