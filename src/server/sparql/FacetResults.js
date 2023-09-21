@@ -253,7 +253,8 @@ export const getByURI = ({
   facetClass,
   constraints,
   uri,
-  resultFormat
+  resultFormat,
+  propertyLangTag
 }) => {
   let perspectiveConfig
   if (perspectiveID) {
@@ -294,6 +295,9 @@ export const getByURI = ({
   q = q.replace(/<ID>/g, `<${uri}>`)
   if (langTag) {
     q = q.replace(/<LANG>/g, langTag)
+  }
+  if (propertyLangTag) {
+    q = q.replace(/<LANG>/g, propertyLangTag)
   }
   if (langTagSecondary) {
     q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary)

@@ -176,7 +176,8 @@ createBackendSearchConfig().then(backendSearchConfig => {
         uri: params.uri,
         facetClass: body.facetClass,
         constraints: body.constraints,
-        resultFormat: 'json'
+        resultFormat: 'json',
+        propertyLangTag: body.langTag
       })
       res.json(data)
     } catch (error) {
