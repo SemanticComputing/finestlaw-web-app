@@ -271,10 +271,12 @@ const fetchByURIEpic = (action$, state$) => action$.pipe(
   withLatestFrom(state$),
   mergeMap(([action, state]) => {
     const { perspectiveID, resultClass, facetClass, uri } = action
+    const langTag = state.options.currentLocale
     const params = stateToUrl({
       perspectiveID,
       facets: facetClass == null ? null : state[`${facetClass}Facets`].facets,
-      facetClass
+      facetClass,
+      langTag
     })
     const requestUrl = `${apiUrl}/${resultClass}/page/${encodeURIComponent(uri)}`
     return ajax({
