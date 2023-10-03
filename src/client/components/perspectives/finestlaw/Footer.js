@@ -5,6 +5,8 @@ import Box from '@mui/material/Box'
 import aaltoLogo from '../../../img/logos/Aalto_SCI_EN_13_BLACK_2_cropped.png'
 import hyLogo from '../../../img/logos/university-of-helsinki-logo-transparent-black.png'
 import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
+import omLogo from '../../../img/logos/om-logo_eng.png'
+import emLogo from '../../../img/logos/em-logo_eng.png'
 
 /**
  * A component for creating a footer. The logos are imported inside this component.
@@ -52,6 +54,48 @@ const Footer = props => {
           component='img'
           src={aaltoLogo}
           alt='Aalto University logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://oikeusministerio.fi/en'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          height: 30,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            height: 42
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={omLogo}
+          alt='Logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://www.just.ee/en'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          height: 60,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            height: 72
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={emLogo}
+          alt='Logo'
           sx={{
             height: '100%'
           }}
