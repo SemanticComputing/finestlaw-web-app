@@ -12,7 +12,6 @@ export const prefixes = `
   PREFIX sch: <http://schema.org/>
   PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
   PREFIX frbroo: <http://erlangen-crm.org/efrbroo/>
-  PREFIX mmm-schema: <http://ldf.fi/mmm/schema/>
   PREFIX gvp: <http://vocab.getty.edu/ontology#>
   PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
   PREFIX spatial: <http://jena.apache.org/spatial#>
@@ -26,6 +25,4 @@ export const prefixes = `
   PREFIX fe: <http://ldf.fi/finest/>
   PREFIX fes: <http://ldf.fi/schema/finestlaw/>
   PREFIX dc: <http://purl.org/dc/elements/1.1/>
-
-  
   `

@@ -70,9 +70,12 @@ const sectionBlock = `
 
 export const statuteProperties = `
     {
-      ?id skos:prefLabel ?prefLabel__id .
+      {?id skos:prefLabel ?prefLabel__id .}
+      UNION
+      {?id fes:translated_prefLabel ?prefLabel__id .}
       ?id dc:source ?prefLabel__source .
       BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+      FILTER(LANG(?prefLabel__id) = '<LANG>')
 
       # create link for React Router:
       BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?prefLabel__dataProviderUrl)
@@ -127,7 +130,6 @@ export const statutePropertiesInstancePage = `
       ?id skos:prefLabel ?prefLabel__id .
       ?id dc:source ?prefLabel__source .
       BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-      FILTER(LANG(?prefLabel__id) = '<LANG>')
 
       # create link for React Router:
       BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?prefLabel__dataProviderUrl)
@@ -165,13 +167,16 @@ export const statutePropertiesInstancePage = `
     }
     UNION
     {
-      ?id lss:html ?html_ .
+      {?id lss:html ?html_ .}
+      UNION
+      {?id fes:translated_html ?html_ .}
       BIND(REPLACE(?html_, "<html>|</html>|<head />|<body>|</body>", "") as ?contentHTML)
+      FILTER(LANG(?html_) = '<LANG>')
     }
     UNION
     {
       ?id lss:finlex_url ?sourceLink__id .
-      BIND('SourceLink' as ?sourceLink__prefLabel)
+      BIND('Link to source' as ?sourceLink__prefLabel)
       BIND(?sourceLink__id as ?sourceLink__dataProviderUrl)
     }
     ${sectionBlock}
