@@ -152,6 +152,14 @@
           "label": "Avainsana",
           "description": "Avainsana"
         },
+        "finSituationCategory": {
+          "label": "Suomalainen elämäntilanne",
+          "description": "Suomalainen elämäntilanne"
+        },
+        "estSituationCategory": {
+          "label": "Viron elämäntilanne",
+          "description": "Viron elämäntilanne"
+        },
         "euDirective": {
           "label": "EU-direktiivi",
           "missingValueLabel": "ei direktiiviä",

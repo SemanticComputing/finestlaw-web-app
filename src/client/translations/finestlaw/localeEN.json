@@ -152,6 +152,14 @@
           "label": "Keyword",
           "description": "Keyword"
         },
+        "finSituationCategory": {
+          "label": "Finnish life situation",
+          "description": "Finnish life situation"
+        },
+        "estSituationCategory": {
+          "label": "Estonian life situation",
+          "description": "Estonian life situation"
+        },
         "euDirective": {
           "label": "Eu directive",
           "missingValueLabel": "no directive",

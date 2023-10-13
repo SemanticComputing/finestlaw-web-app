@@ -60,7 +60,7 @@
         "width": 2
       },
       "xaxisTickAmount": 20,
-      "title": "", 
+      "title": "",
       "xaxisTitle": "",
       "yaxisTitle": "",
       "tabPath": "by_year",
@@ -139,6 +139,22 @@
       "numberedList": false
     },
     {
+      "id": "finSituationCategory",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": false,
+      "numberedList": false
+    },
+    {
+      "id": "estSituationCategory",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": false,
+      "numberedList": false
+    },
+    {
       "id": "euDirective",
       "valueType": "object",
       "makeLink": true,
@@ -205,6 +221,32 @@
       "sortButton": true,
       "sortBy": "instanceCount",
       "sortByPredicate": "fes:eurovoc_keyword/skos:prefLabel",
+      "sortDirection": "desc"
+    },
+    "finSituationCategory": {
+      "containerClass": "ten",
+      "facetType": "list",
+      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+      "filterType": "uriFilter",
+      "pieChartButton": true,
+      "predicate": "lss:situation_category",
+      "searchField": true,
+      "sortButton": true,
+      "sortBy": "instanceCount",
+      "sortByPredicate": "lss:situation_category/skos:prefLabel",
+      "sortDirection": "desc"
+    },
+    "estSituationCategory": {
+      "containerClass": "ten",
+      "facetType": "list",
+      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+      "filterType": "uriFilter",
+      "pieChartButton": true,
+      "predicate": "lss:est_situation_category",
+      "searchField": true,
+      "sortButton": true,
+      "sortBy": "instanceCount",
+      "sortByPredicate": "lss:est_situation_category/skos:prefLabel",
       "sortDirection": "desc"
     },
     "euDirective": {

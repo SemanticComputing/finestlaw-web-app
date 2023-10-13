@@ -152,6 +152,14 @@
           "label": "Märksõna",
           "description": "Märksõna"
         },
+        "finSituationCategory": {
+          "label": "Soome eluolu",
+          "description": "Soome eluolu"
+        },
+        "estSituationCategory": {
+          "label": "Eesti eluolu",
+          "description": "Eesti eluolu"
+        },
         "euDirective": {
           "label": "EU direktiiv",
           "missingValueLabel": "ei direktiiv",
