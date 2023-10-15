@@ -124,7 +124,7 @@ export const statuteProperties = `
     UNION
     {
       ?id lss:html ?html_ .
-      BIND(REPLACE(?html_, "<html>|</html>|<head />|<body>|</body>", "") as ?contentHTML)
+      BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<body>|</body>", "") as ?contentHTML)
     }
     UNION
     {
@@ -137,9 +137,12 @@ export const statuteProperties = `
 
 export const statutePropertiesInstancePage = `
     {
-      ?id skos:prefLabel ?prefLabel__id .
+      {?id skos:prefLabel ?prefLabel__id .}
+      UNION
+      {?id fes:translated_prefLabel ?prefLabel__id .}
       ?id dc:source ?prefLabel__source .
       BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+      FILTER(LANG(?prefLabel__id) = (IF(?prefLabel__source = "EST", "et", "fi")))
 
       # create link for React Router:
       BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?prefLabel__dataProviderUrl)
@@ -192,7 +195,7 @@ export const statutePropertiesInstancePage = `
       {?id lss:html ?html_ .}
       UNION
       {?id fes:translated_html ?html_ .}
-      BIND(REPLACE(?html_, "<html>|</html>|<head />|<body>|</body>", "") as ?contentHTML)
+      BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<body>|</body>", "") as ?contentHTML)
       FILTER(LANG(?html_) = '<LANG>')
     }
     UNION
