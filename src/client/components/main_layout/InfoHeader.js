@@ -67,9 +67,9 @@ const InfoHeader = (props) => {
       <>
         {source === "FIN" ? (
           <FI title="Finland" className={classes.countryFlagIcon} />
-        ) : (
-          <EE title="Finland" className={classes.countryFlagIcon} />
-        )}
+        ) : source === "EST" ? (
+          <EE title="Estonia" className={classes.countryFlagIcon} />
+        ) : null}
         {label}
       </>
     );

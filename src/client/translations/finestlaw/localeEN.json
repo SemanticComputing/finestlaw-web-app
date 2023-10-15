@@ -117,7 +117,7 @@
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to the statutes of the Finnish and Estonian consolidated legislation. The facets provide selections to filter the result set, which is shown on the table view. The result view can be selected using the tabs: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TABLE</STRONG> view shows all statutes in the result set. One table row corresponds to one statute. </li> <li> <strong>EXPORT</strong> tab contains a link to open the SPARQL query used to generate the result table view into YASGUI query editor. This is intended for software developers. </li> </ul>",
       "instancePage": {
         "label": "Statutes",
-        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This landing page provides a... </p>"
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">This page shows the content and metadata of legislation. The information of the regulations is based on the material of Semantinen Finlex and Riigi Teataja. The view contains three tabs: </p><ul class= \"MuiTypography-root MuiTypography-body1\"><li><strong>CONTENT</STRONG> tab displays the textual content of the legislation.</li><li><strong The >DETAILS</STRONG> tab displays the statute's metadata and a link to the original source of the legislation.</li><li> <strong>OPEN IN YASGUI</strong> tab contains a link to open a query that Returns the statute's information in the YASGUI application. This tab is for for application developers.</li></ul>"
       },
       "properties": {
         "uri": {

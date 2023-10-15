@@ -71,7 +71,7 @@ const ObjectListCollapsible = props => {
       if (source === "FIN") {
         return <div><FI title="Finland" className={classes.countryFlagIcon}/></div>
       } else if (source === "EST") {
-        return <div><EE title="Finland" className={classes.countryFlagIcon}/></div>
+        return <div><EE title="Estonia" className={classes.countryFlagIcon}/></div>
       } else {
         return null
       }

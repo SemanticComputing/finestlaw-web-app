@@ -101,19 +101,21 @@ export const statuteProperties = `
     }
     UNION
     {
-      ?id fe:eurovoc_keyword ?keyword__id .
+      ?id fes:eurovoc_keyword ?keyword__id .
       ?keyword__id skos:prefLabel ?keyword__prefLabel .
-      ?keyword__id skos:exactMatch ?keyword__dataProviderUrl .
+      FILTER(LANG(?keyword__prefLabel) = '<LANG>')
     }
     UNION
     {
-      ?id lss:situation_category ?situationCategory__id .
-      ?situationCategory__id skos:prefLabel ?situationCategory__prefLabel .
+      ?id lss:situation_category ?finSituationCategory__id .
+      ?finSituationCategory__id skos:prefLabel ?finSituationCategory__prefLabel .
+      FILTER(LANG(?finSituationCategory__prefLabel) = '<LANG>')
     }
     UNION
     {
-      ?id lss:est_situation_category ?situationCategory__id .
-      ?situationCategory__id skos:prefLabel ?situationCategory__prefLabel .
+      ?id lss:est_situation_category ?estSituationCategory__id .
+      ?estSituationCategory__id skos:prefLabel ?estSituationCategory__prefLabel .
+      FILTER(LANG(?estSituationCategory__prefLabel) = '<LANG>')
     }
     UNION
     {
@@ -168,9 +170,9 @@ export const statutePropertiesInstancePage = `
     }
     UNION
     {
-      ?id fe:eurovoc_keyword ?keyword__id .
+      ?id fes:eurovoc_keyword ?keyword__id .
       ?keyword__id skos:prefLabel ?keyword__prefLabel .
-      ?keyword__id skos:exactMatch ?keyword__dataProviderUrl .
+      FILTER(LANG(?keyword__prefLabel) = '<LANG>')
     }
     UNION
     {
