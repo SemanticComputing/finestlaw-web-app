@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import { useLocation } from 'react-router-dom'
 import { has } from 'lodash'
 import intl from 'react-intl-universal'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -78,19 +79,41 @@ const useStyles = makeStyles(theme => ({
   tooltipList: {
     listStylePosition: 'inside',
     paddingLeft: 0
+  },
+  disclaimer: {
+    paddingLeft: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    fontStyle: 'italic'
   }
 }))
+
+const tranlationDisclaimer = "Disclaimer: Texts are machine-translated. Verify for accuracy and use at your own risk."
 
 const InstancePageContextualContent = props => {
   const classes = useStyles(props)
   let { data } = props
-  const { tableOfContents, hasParts, hasChapters} = props
+  const { tableOfContents, hasParts, hasChapters, source} = props
   const {
     makeLink, externalLink, sortValues, sortBy, numberedList, columnId, linkAsButton,
     showSource, sourceExternalLink
   } = props.tableOfContentsConfig || {}
   const location = useLocation()
   const sectionRefs = useRef({})
+  const langTag = useSelector(state => state.options.currentLocale)
+
+  const showTranslationDisclaimer = () => {
+    let isShown = false
+    if (source === "FIN") {
+        if (langTag !== "fi") {
+            isShown = true
+        }
+    } else {
+        if (langTag === "fi") {
+            isShown = true
+        }
+    }
+    return isShown
+  }
   
   // Fuseki splits long HTML texts, combine them here
   if (Array.isArray(data)) {
@@ -125,6 +148,7 @@ const InstancePageContextualContent = props => {
       <Grid className={classes.mainContainer} container spacing={1}>
         <Grid className={classes.gridItem} item xs={12} sm={12} md={8}>
           <Paper className={classes.textOuterContainer}>
+            {showTranslationDisclaimer() ? <Typography className={classes.disclaimer} variant='body2' color='textWarning' component='p'>{tranlationDisclaimer}</Typography> : null}
             <div className={classes.textInnerContainer}>
               {data}
             </div>

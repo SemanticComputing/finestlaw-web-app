@@ -127,7 +127,8 @@ const ResultClassRoute = props => {
         referencedTerm: instanceTableData.referencedTerm,
         wordcloudData: instanceTableData.referencedTerm,
         wordcloudMaxWords: 40,
-        layoutConfig
+        layoutConfig,
+        source: instanceTableData.source
       }
       routeComponent = (
         <Route

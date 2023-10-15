@@ -195,7 +195,7 @@ export const statutePropertiesInstancePage = `
       {?id lss:html ?html_ .}
       UNION
       {?id fes:translated_html ?html_ .}
-      BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<body>|</body>", "") as ?contentHTML)
+      BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<head />|<body>|</body>", "") as ?contentHTML)
       FILTER(LANG(?html_) = '<LANG>')
     }
     UNION
