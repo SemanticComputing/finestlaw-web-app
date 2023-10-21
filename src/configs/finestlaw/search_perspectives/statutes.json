@@ -212,10 +212,11 @@
     },
     "keyword": {
       "containerClass": "ten",
-      "facetType": "list",
+      "facetType": "hierarchical",
       "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
       "filterType": "uriFilter",
       "pieChartButton": true,
+      "parentProperty": "skos:broader",
       "predicate": "fes:eurovoc_keyword",
       "searchField": true,
       "sortButton": true,
