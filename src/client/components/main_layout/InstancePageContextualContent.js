@@ -129,7 +129,7 @@ const InstancePageContextualContent = props => {
     data = data
   }
 
-  const parser = new HTMLParser({ ...props, classes, sectionRefs })
+  const parser = new HTMLParser({ ...props, classes, sectionRefs, langTag })
   data = parser.parseHTML(data)
 
   useEffect(() => {
