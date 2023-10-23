@@ -22,8 +22,7 @@ const sectionBlock = `
                                           lss:chapter_number ?firstLevel__secondLevel__id ;
                                           lss:chapter_number_int ?firstLevel__secondLevel__integer ;
                                           lss:section_number ?firstLevel__secondLevel__section__sectionNumber ;
-                                          lss:section_number_int ?firstLevel__secondLevel__section__sectionNumberInt ;
-                                          skos:prefLabel ?section_prefLabel_ .
+                                          lss:section_number_int ?firstLevel__secondLevel__section__sectionNumberInt .
     BIND(CONCAT("Osa ", ?firstLevel__id) as ?firstLevel__prefLabel)
     BIND(CONCAT(?firstLevel__secondLevel__id, " luku") as ?firstLevel__secondLevel__prefLabel)
     ${getSectionLabel("?firstLevel__secondLevel__section__prefLabel")}
@@ -38,8 +37,7 @@ const sectionBlock = `
     ?firstLevel__section__id lss:chapter_number ?firstLevel__id ;
                              lss:chapter_number_int ?firstLevel__integer ;
                              lss:section_number ?firstLevel__section__sectionNumber ;
-                             lss:section_number_int ?firstLevel__section__sectionNumberInt ;
-                             skos:prefLabel ?section_prefLabel_ .
+                             lss:section_number_int ?firstLevel__section__sectionNumberInt .
     BIND(CONCAT(?firstLevel__id, " luku") as ?firstLevel__prefLabel)
     ${getSectionLabel("?firstLevel__section__prefLabel")}
     BIND(?firstLevel__id as ?firstLevel__section__chapterNumber)
@@ -54,8 +52,7 @@ const sectionBlock = `
   {
     ?id lss:section ?firstLevel__id .
     ?firstLevel__id lss:section_number_int ?firstLevel__sectionNumberInt ;
-                    lss:section_number ?firstLevel__sectionNumber ;
-                    skos:prefLabel ?section_prefLabel_ .
+                    lss:section_number ?firstLevel__sectionNumber .
     ${getSectionLabel("?firstLevel__prefLabel")}
     BIND(?firstLevel__sectionNumberInt as ?firstLevel__integer)
     BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?firstLevel__dataProviderUrl)
