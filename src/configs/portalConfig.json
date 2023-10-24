@@ -2,7 +2,7 @@
   "portalID": "finestlaw",
   "rootUrl": "",
   "perspectives": {
-    "searchPerspectives": ["statutes"],
+    "searchPerspectives": ["statutes", "euDirectives"],
     "onlyInstancePages": []
   },
   "localeConfig": {
