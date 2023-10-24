@@ -174,6 +174,72 @@
           "description": "Linkki alkuperäiseen lähteeseen"
         }
       } 
+    },
+    "euDirectives": {
+      "label": "EU direktiivi",
+      "mainPageLabel": "EU direktiivi",
+      "facetResultsType": "EU direktiivi",
+      "shortDescription": "Hae EU direktiivi",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Käytä tätä näkökulmaa päästäksesi käsiksi Suomen ja Viron konsolidoidun lainsäädännön perussääntöihin liittyviin tietoihin. Fasetit tarjoavat valintoja tulosjoukon suodattamiseksi, joka näkyy taulukkonäkymässä. Tulosnäkymä voidaan valita välilehdillä: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TIEDOT</STRONG>-välilehti näyttää kaikki tulosjoukon säädökset taulukkona, jossa yksi rivi vastaa yhtä säädöstä. Säädösten tiedot näkyvät tulostaulukossa sarakkeittain, säädöksen nimen toimiessa linkkinä säädöksen tietosivulle. Säädöksen sisältämät pykälät näkyvät listana Pykälät-sarakkeessa. </li> <li> <strong>AVAA YASGUI-SOVELLUKSESSA</strong> -välilehti sisältää linkin SPARQL-kyselyn avaamiseen, jota käytetään tulostaulukkonäkymän luomiseen YASGUI-kyselyeditoriin. Tämä on tarkoitettu ohjelmistokehittäjille. </li> </ul>",
+      "instancePage": {
+        "label": "Säädös",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Tällä sivulla näkyy lainsäädännön sisältö ja metatiedot. Säädösten tiedot perustuvat Semanttisen Finlexin ja Riigi Teatajan aineistoon. Näkymä sisältää kolme välilehteä: </p><ul class=\"MuiTypography-root MuiTypography-body1\"> <li><strong>SISÄLTÖ</STRONG>-välilehti näyttää lain tekstisisällön.</li><li><strong>TIEDOT</STRONG>-välilehti näyttää säädöksen metatiedot ja linkin lain alkuperäiseen lähteeseen.</li><li><strong>AVAA YASGUI-SOVELLUKSESSA</strong>-välilehti sisältää linkinsäädöksen tiedot palauttavan kyselyn avaamiseen YASGUI-sovelluksessa. Tämä välilehti on tarkoitettu sovelluskehittäjille.</li></ul>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI-tunniste",
+          "description": "Säädöksen Uniform Resource Identifier -tunniste"
+        },
+        "prefLabel": {
+          "label": "Säädös",
+          "description": "Säädöksen nimi"
+        },
+        "statute": {
+          "label": "Laws and acts",
+          "description": "Laws and acts"
+        },
+        "firstLevel": {
+          "label": "Pykälät",
+          "description": "Pykälät"
+        },
+        "textSearch": {
+          "label": "Tekstihaku",
+          "description": "Tekstihaku"
+        },
+        "statuteType": {
+          "label": "Säännön tyyppi",
+          "description": "Säännön tyyppi"
+        },
+        "enforcementDate": {
+          "label": "Voimaantulo",
+          "description": "Säädöksen uusimman version voimaantulopäivämäärä"
+        },
+        "keyword": {
+          "label": "Avainsana",
+          "description": "Avainsana"
+        },
+        "finSituationCategory": {
+          "label": "Suomalainen elämäntilanne",
+          "description": "Suomalainen elämäntilanne"
+        },
+        "estSituationCategory": {
+          "label": "Viron elämäntilanne",
+          "description": "Viron elämäntilanne"
+        },
+        "euDirective": {
+          "label": "EU-direktiivi",
+          "missingValueLabel": "ei direktiiviä",
+          "description": "Säädöksen viittaama EU-direktiivi"
+        },
+        "source": {
+          "label": "Lähde",
+          "description": "Lakien lähde."
+        },
+        "sourceLink": {
+          "label": "Linkki alkuperäiseen lähteeseen",
+          "description": "Linkki alkuperäiseen lähteeseen"
+        }
+      } 
     }
   }
 }

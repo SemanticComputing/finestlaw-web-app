@@ -173,7 +173,73 @@
           "label": "Link algallikale",
           "description": "Link algallikale"
         }
-      } 
+      }
+    },
+    "euDirectives": {
+      "label": "EU direktiiv",
+      "mainPageLabel": "EU direktiiv",
+      "facetResultsType": "EU direktiiv",
+      "shortDescription": "Otsige EU direktiiv",
+      "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Kasutage seda vaatenurka Soome ja Eesti konsolideeritud õigusaktide põhireeglitega seotud teabele juurdepääsuks. Aspektid pakuvad valikuid tabelivaates kuvatava tulemuste komplekti filtreerimiseks. Tulemuste vaadet saab valida järgmiste vahekaartide abil. </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TEAVE</STRONG>kaart näitab kõiki tulemuste komplektis olevaid määrusi tabelina, kus üks rida vastab ühele määrusele. Määruse info kuvatakse tabelis Tulemused veergudena, kusjuures määruse nimetus on lingina määruse infolehele. Määruses sisalduvad artiklid kuvatakse loendina artiklite veerus. </li> <li> <strong>AVAA YASGUI-SOVELLUKSESSA</strong> vahekaart sisaldab linki SPARQL-i päringu avamiseks, mida kasutatakse YASGUI päringuredaktoris tulemuste tabelivaate loomiseks. See on tarkvaraarendajatele. </li> </ul>",
+      "instancePage": {
+        "label": "Seadus",
+        "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Sellel lehel on näha õigusaktide sisu ja metaandmed. Määruste info põhineb Semantinen Finlexi ja Riigi Teataja materjalil. Vaade sisaldab kolme vahekaardid: </p><ul class= \"MuiTypography-root MuiTypography-body1\"><li><strong>CONTENT</STRONG> kuvab õigusaktide tekstilise sisu.</li><li><strong> Vahekaardil >ÜKSIKASJAD</STRONG> kuvatakse põhikirja metaandmed ja link õigusakti algallikale.</li><li> Vahekaart <strong>AVA YASGUI-s</strong> sisaldab linki päringu avamiseks, mis tagastab põhikirja teave YASGUI rakenduses. See vahekaart on mõeldud rakenduste arendajatele.</li></ul>"
+      },
+      "properties": {
+        "uri": {
+          "label": "URI identifikaator",
+          "description": "Määruse ühtne ressursitunnus"
+        },
+        "prefLabel": {
+          "label": "Seadus",
+          "description": "Määruse nimetus"
+        },
+        "statute": {
+          "label": "Laws and acts",
+          "description": "Laws and acts"
+        },
+        "firstLevel": {
+          "label": "Lõigud",
+          "description": "Lõigud"
+        },
+        "textSearch": {
+          "label": "Tekstiotsing",
+          "description": "Tekstiotsing"
+        },
+        "statuteType": {
+          "label": "Reegli tüüp",
+          "description": "Reegli tüüp"
+        },
+        "enforcementDate": {
+          "label": "Läbipääs",
+          "description": "Õigusakti viimase versiooni jõustumise kuupäev"
+        },
+        "keyword": {
+          "label": "Märksõna",
+          "description": "Märksõna"
+        },
+        "finSituationCategory": {
+          "label": "Soome eluolu",
+          "description": "Soome eluolu"
+        },
+        "estSituationCategory": {
+          "label": "Eesti eluolu",
+          "description": "Eesti eluolu"
+        },
+        "euDirective": {
+          "label": "EU direktiiv",
+          "missingValueLabel": "ei direktiiv",
+          "description": "Määruses viidatud EU Ldirektiiv"
+        },
+        "source": {
+          "label": "Allikas",
+          "description": "Seaduste allikas."
+        },
+        "sourceLink": {
+          "label": "Link algallikale",
+          "description": "Link algallikale"
+        }
+      }
     }
   }
 }
