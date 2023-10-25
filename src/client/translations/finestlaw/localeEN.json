@@ -5,9 +5,9 @@
     "description": "FINEST-Law is a semantic portal which provides ready-to-use tooling for exploring and analyzing legal documents"
   },
   "appTitle": {
-    "short": "FINEST-LAW",
-    "mobile": "FINEST-LAW",
-    "long": "FINEST-LAW",
+    "short": "FINEST-Law-Sampo",
+    "mobile": "FINEST-Law-Sampo",
+    "long": "FINEST-Law-Sampo",
     "subheading": "Finnish and Estonian Legislation on the Semantic Web"
   },
   "selectPerspective": "Select statutes perspective to search and browse the legislation data:",

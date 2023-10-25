@@ -5,9 +5,9 @@
     "description": "FINEST-Laki on semanttinen portaali, joka tarjoaa käyttövalmiita työkaluja oikeudellisten asiakirjojen tutkimiseen ja analysointiin"
   },
   "appTitle": {
-    "short": "FINEST-Laki",
-    "mobile": "FINEST-Laki",
-    "long": "FINEST-Laki",
+    "short": "FINEST-Laki-Sampo",
+    "mobile": "FINEST-Laki-Sampo",
+    "long": "FINEST-Laki-Sampo",
     "subheading": "Suomen ja Viron lainsäädäntö semanttisessa webissä"
   },
   "selectPerspective": "Valitse näkymä aineiston hakua ja tutkimista varten:",
@@ -176,10 +176,10 @@
       } 
     },
     "euDirectives": {
-      "label": "EU direktiivi",
-      "mainPageLabel": "EU direktiivi",
-      "facetResultsType": "EU direktiivi",
-      "shortDescription": "Hae EU direktiivi",
+      "label": "EU-direktiivi",
+      "mainPageLabel": "EU-direktiivi",
+      "facetResultsType": "EU-direktiivi",
+      "shortDescription": "Hae EU-direktiivi",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Käytä tätä näkökulmaa päästäksesi käsiksi Suomen ja Viron konsolidoidun lainsäädännön perussääntöihin liittyviin tietoihin. Fasetit tarjoavat valintoja tulosjoukon suodattamiseksi, joka näkyy taulukkonäkymässä. Tulosnäkymä voidaan valita välilehdillä: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TIEDOT</STRONG>-välilehti näyttää kaikki tulosjoukon säädökset taulukkona, jossa yksi rivi vastaa yhtä säädöstä. Säädösten tiedot näkyvät tulostaulukossa sarakkeittain, säädöksen nimen toimiessa linkkinä säädöksen tietosivulle. Säädöksen sisältämät pykälät näkyvät listana Pykälät-sarakkeessa. </li> <li> <strong>AVAA YASGUI-SOVELLUKSESSA</strong> -välilehti sisältää linkin SPARQL-kyselyn avaamiseen, jota käytetään tulostaulukkonäkymän luomiseen YASGUI-kyselyeditoriin. Tämä on tarkoitettu ohjelmistokehittäjille. </li> </ul>",
       "instancePage": {
         "label": "Säädös",

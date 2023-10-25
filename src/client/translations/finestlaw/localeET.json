@@ -5,9 +5,9 @@
     "description": "FINEST-Seadus on semantiline portaal, mis pakub kasutusvalmis tööriistu juriidiliste dokumentide uurimiseks ja analüüsimiseks"
   },
   "appTitle": {
-    "short": "FINEST-Seadus",
-    "mobile": "FINEST-Seadus",
-    "long": "FINEST-Seadus",
+    "short": "FINEST-Seadus-Sampo",
+    "mobile": "FINEST-Seadus-Sampo",
+    "long": "FINEST-Seadus-Sampo",
     "subheading": "Soome ja Eesti seadusandlus semantilises veebis"
   },
   "selectPerspective": "Valige materjali otsimiseks ja uurimiseks vaade:",
