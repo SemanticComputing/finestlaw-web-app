@@ -128,10 +128,6 @@
           "label": "Statute",
           "description": "Name of the statute."
         },
-        "statute": {
-          "label": "Laws and acts",
-          "description": "Laws and acts"
-        },
         "firstLevel": {
           "label": "Paragraphs",
           "description": "Paragraphs"
@@ -146,22 +142,22 @@
         },
         "enforcementDate": {
           "label": "Enforcement Date",
-          "description": "Enforcement Date"
+          "description": "Enforcement date"
         },
         "keyword": {
-          "label": "Keyword",
-          "description": "Keyword"
+          "label": "Eurovoc Keyword",
+          "description": "Eurovoc keyword"
         },
         "finSituationCategory": {
-          "label": "Finnish life situation",
+          "label": "Finnish Life Situation",
           "description": "Finnish life situation"
         },
         "estSituationCategory": {
-          "label": "Estonian life situation",
+          "label": "Estonian Life Situation",
           "description": "Estonian life situation"
         },
         "euDirective": {
-          "label": "Eu directive",
+          "label": "Eu Directive",
           "missingValueLabel": "no directive",
           "description": "Eu directive"
         },

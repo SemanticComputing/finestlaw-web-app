@@ -128,10 +128,6 @@
           "label": "Seadus",
           "description": "Määruse nimetus"
         },
-        "statute": {
-          "label": "Laws and acts",
-          "description": "Laws and acts"
-        },
         "firstLevel": {
           "label": "Lõigud",
           "description": "Lõigud"
@@ -141,7 +137,7 @@
           "description": "Tekstiotsing"
         },
         "statuteType": {
-          "label": "Reegli tüüp",
+          "label": "Reegli Tüüp",
           "description": "Reegli tüüp"
         },
         "enforcementDate": {
@@ -149,19 +145,19 @@
           "description": "Õigusakti viimase versiooni jõustumise kuupäev"
         },
         "keyword": {
-          "label": "Märksõna",
-          "description": "Märksõna"
+          "label": "EuroVoc Märksõna",
+          "description": "EuroVoc Märksõna"
         },
         "finSituationCategory": {
-          "label": "Soome eluolu",
+          "label": "Soome Eluolu",
           "description": "Soome eluolu"
         },
         "estSituationCategory": {
-          "label": "Eesti eluolu",
+          "label": "Eesti Eluolu",
           "description": "Eesti eluolu"
         },
         "euDirective": {
-          "label": "EU direktiiv",
+          "label": "EU Direktiiv",
           "missingValueLabel": "ei direktiiv",
           "description": "Määruses viidatud EU Ldirektiiv"
         },
@@ -194,10 +190,6 @@
           "label": "Seadus",
           "description": "Määruse nimetus"
         },
-        "statute": {
-          "label": "Laws and acts",
-          "description": "Laws and acts"
-        },
         "firstLevel": {
           "label": "Lõigud",
           "description": "Lõigud"
@@ -207,7 +199,7 @@
           "description": "Tekstiotsing"
         },
         "statuteType": {
-          "label": "Reegli tüüp",
+          "label": "Reegli Tüüp",
           "description": "Reegli tüüp"
         },
         "enforcementDate": {
@@ -215,19 +207,19 @@
           "description": "Õigusakti viimase versiooni jõustumise kuupäev"
         },
         "keyword": {
-          "label": "Märksõna",
-          "description": "Märksõna"
+          "label": "EuroVoc Märksõna",
+          "description": "EuroVoc Märksõna"
         },
         "finSituationCategory": {
-          "label": "Soome eluolu",
+          "label": "Soome Eluolu",
           "description": "Soome eluolu"
         },
         "estSituationCategory": {
-          "label": "Eesti eluolu",
+          "label": "Eesti Eluolu",
           "description": "Eesti eluolu"
         },
         "euDirective": {
-          "label": "EU direktiiv",
+          "label": "EU Direktiiv",
           "missingValueLabel": "ei direktiiv",
           "description": "Määruses viidatud EU Ldirektiiv"
         },

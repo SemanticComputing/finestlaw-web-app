@@ -128,10 +128,6 @@
           "label": "Säädös",
           "description": "Säädöksen nimi"
         },
-        "statute": {
-          "label": "Laws and acts",
-          "description": "Laws and acts"
-        },
         "firstLevel": {
           "label": "Pykälät",
           "description": "Pykälät"
@@ -141,7 +137,7 @@
           "description": "Tekstihaku"
         },
         "statuteType": {
-          "label": "Säännön tyyppi",
+          "label": "Säännön Tyyppi",
           "description": "Säännön tyyppi"
         },
         "enforcementDate": {
@@ -149,15 +145,15 @@
           "description": "Säädöksen uusimman version voimaantulopäivämäärä"
         },
         "keyword": {
-          "label": "Avainsana",
-          "description": "Avainsana"
+          "label": "EuroVoc Avainsana",
+          "description": "EuroVoc Avainsana"
         },
         "finSituationCategory": {
-          "label": "Suomalainen elämäntilanne",
+          "label": "Suomalainen Elämäntilanne",
           "description": "Suomalainen elämäntilanne"
         },
         "estSituationCategory": {
-          "label": "Viron elämäntilanne",
+          "label": "Viron Elämäntilanne",
           "description": "Viron elämäntilanne"
         },
         "euDirective": {
@@ -194,10 +190,6 @@
           "label": "Säädös",
           "description": "Säädöksen nimi"
         },
-        "statute": {
-          "label": "Laws and acts",
-          "description": "Laws and acts"
-        },
         "firstLevel": {
           "label": "Pykälät",
           "description": "Pykälät"
@@ -207,7 +199,7 @@
           "description": "Tekstihaku"
         },
         "statuteType": {
-          "label": "Säännön tyyppi",
+          "label": "Säännön Tyyppi",
           "description": "Säännön tyyppi"
         },
         "enforcementDate": {
@@ -215,15 +207,15 @@
           "description": "Säädöksen uusimman version voimaantulopäivämäärä"
         },
         "keyword": {
-          "label": "Avainsana",
-          "description": "Avainsana"
+          "label": "EuroVoc Avainsana",
+          "description": "EuroVoc Avainsana"
         },
         "finSituationCategory": {
-          "label": "Suomalainen elämäntilanne",
+          "label": "Suomalainen Elämäntilanne",
           "description": "Suomalainen elämäntilanne"
         },
         "estSituationCategory": {
-          "label": "Viron elämäntilanne",
+          "label": "Viron Elämäntilanne",
           "description": "Viron elämäntilanne"
         },
         "euDirective": {
