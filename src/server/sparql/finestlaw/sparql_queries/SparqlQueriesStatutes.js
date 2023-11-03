@@ -104,13 +104,13 @@ export const statuteProperties = `
     }
     UNION
     {
-      ?id lss:situation_category ?finSituationCategory__id .
+      ?id fec:situation_fi ?finSituationCategory__id .
       ?finSituationCategory__id skos:prefLabel ?finSituationCategory__prefLabel .
       FILTER(LANG(?finSituationCategory__prefLabel) = '<LANG>')
     }
     UNION
     {
-      ?id lss:est_situation_category ?estSituationCategory__id .
+      ?id fec:situation_et ?estSituationCategory__id .
       ?estSituationCategory__id skos:prefLabel ?estSituationCategory__prefLabel .
       FILTER(LANG(?estSituationCategory__prefLabel) = '<LANG>')
     }
@@ -168,13 +168,13 @@ export const statutePropertiesInstancePage = `
     }
     UNION
     {
-      ?id lss:situation_category ?finSituationCategory__id .
+      ?id fec:situation_fi ?finSituationCategory__id .
       ?finSituationCategory__id skos:prefLabel ?finSituationCategory__prefLabel .
       FILTER(LANG(?finSituationCategory__prefLabel) = '<LANG>')
     }
     UNION
     {
-      ?id lss:est_situation_category ?estSituationCategory__id .
+      ?id fec:situation_et ?estSituationCategory__id .
       ?estSituationCategory__id skos:prefLabel ?estSituationCategory__prefLabel .
       FILTER(LANG(?estSituationCategory__prefLabel) = '<LANG>')
     }

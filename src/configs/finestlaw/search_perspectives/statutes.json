@@ -230,11 +230,11 @@
       "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
       "filterType": "uriFilter",
       "pieChartButton": true,
-      "predicate": "lss:situation_category",
+      "predicate": "fec:situation_fi",
       "searchField": true,
       "sortButton": true,
       "sortBy": "instanceCount",
-      "sortByPredicate": "lss:situation_category/skos:prefLabel",
+      "sortByPredicate": "fec:situation_fi/skos:prefLabel",
       "sortDirection": "desc"
     },
     "estSituationCategory": {
@@ -243,11 +243,11 @@
       "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
       "filterType": "uriFilter",
       "pieChartButton": true,
-      "predicate": "lss:est_situation_category",
+      "predicate": "fec:situation_et",
       "searchField": true,
       "sortButton": true,
       "sortBy": "instanceCount",
-      "sortByPredicate": "lss:est_situation_category/skos:prefLabel",
+      "sortByPredicate": "fec:situation_et/skos:prefLabel",
       "sortDirection": "desc"
     },
     "euDirective": {
