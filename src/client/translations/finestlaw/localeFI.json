@@ -11,7 +11,8 @@
     "subheading": "Suomen ja Viron lainsäädäntö semanttisessa webissä"
   },
   "selectPerspective": "Valitse näkymä aineiston hakua ja tutkimista varten:",
-  "mainPageImageLicence": "",
+  "mainPageImageLicence": "Etusivun kuva: Canva.com",
+  "mainPageUnderConstruction": "Huomautus! Tämä sovellus on kehitteillä.",
   "backendErrorText": "Yksi taustapalveluista ei ole tällä hetkellä saatavilla. Yritä uudelleen myöhemmin.",
   "topBar": {
     "feedback": "palaute",
@@ -169,13 +170,13 @@
           "label": "Linkki alkuperäiseen lähteeseen",
           "description": "Linkki alkuperäiseen lähteeseen"
         }
-      } 
+      }
     },
     "euDirectives": {
       "label": "EU-direktiivi",
       "mainPageLabel": "EU-direktiivi",
       "facetResultsType": "EU-direktiivi",
-      "shortDescription": "Hae EU-direktiivi",
+      "shortDescription": "Hae EU-direktiivi (Kehitteillä)",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Käytä tätä näkökulmaa päästäksesi käsiksi Suomen ja Viron konsolidoidun lainsäädännön perussääntöihin liittyviin tietoihin. Fasetit tarjoavat valintoja tulosjoukon suodattamiseksi, joka näkyy taulukkonäkymässä. Tulosnäkymä voidaan valita välilehdillä: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TIEDOT</STRONG>-välilehti näyttää kaikki tulosjoukon säädökset taulukkona, jossa yksi rivi vastaa yhtä säädöstä. Säädösten tiedot näkyvät tulostaulukossa sarakkeittain, säädöksen nimen toimiessa linkkinä säädöksen tietosivulle. Säädöksen sisältämät pykälät näkyvät listana Pykälät-sarakkeessa. </li> <li> <strong>AVAA YASGUI-SOVELLUKSESSA</strong> -välilehti sisältää linkin SPARQL-kyselyn avaamiseen, jota käytetään tulostaulukkonäkymän luomiseen YASGUI-kyselyeditoriin. Tämä on tarkoitettu ohjelmistokehittäjille. </li> </ul>",
       "instancePage": {
         "label": "Säädös",
@@ -231,7 +232,7 @@
           "label": "Linkki alkuperäiseen lähteeseen",
           "description": "Linkki alkuperäiseen lähteeseen"
         }
-      } 
+      }
     }
   }
 }
