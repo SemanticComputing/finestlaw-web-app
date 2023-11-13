@@ -62,7 +62,7 @@
       "feedbackLink": "https://link.webropolsurveys.com/...",
       "externalInstructions": false,
       "instructions": false,
-      "info": false,
+      "info": true,
       "feedback": false,
       "externalAboutPage": false,
       "reducedHeight": 48,
