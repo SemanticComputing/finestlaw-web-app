@@ -38,7 +38,7 @@ const sectionBlock = `
                              lss:chapter_number_int ?firstLevel__integer ;
                              lss:section_number ?firstLevel__section__sectionNumber ;
                              lss:section_number_int ?firstLevel__section__sectionNumberInt .
-    BIND(CONCAT(?firstLevel__id, " luku") as ?firstLevel__prefLabel)
+    BIND(<CHAPTER_NUMBER_LABEL> as ?firstLevel__prefLabel)
     ${getSectionLabel("?firstLevel__section__prefLabel")}
     BIND(?firstLevel__id as ?firstLevel__section__chapterNumber)
     BIND(CONCAT("/statutes/page/", REPLACE(STR(?id), "http://ldf.fi/lawsampo/", "")) AS ?firstLevel__section__dataProviderUrl)

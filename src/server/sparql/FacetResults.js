@@ -1,13 +1,13 @@
-import { has } from 'lodash'
-import { runSelectQuery } from './SparqlApi'
-import { runNetworkQuery } from './NetworkApi'
-import { makeObjectList, mapCount } from './Mappers'
-import { generateConstraintsBlock } from './Filters'
+import { has } from "lodash";
+import { runSelectQuery } from "./SparqlApi";
+import { runNetworkQuery } from "./NetworkApi";
+import { makeObjectList, mapCount } from "./Mappers";
+import { generateConstraintsBlock } from "./Filters";
 import {
   countQuery,
   facetResultSetQuery,
-  instanceQuery
-} from './SparqlQueriesGeneral'
+  instanceQuery,
+} from "./SparqlQueriesGeneral";
 
 export const getPaginatedResults = ({
   backendSearchConfig,
@@ -18,73 +18,95 @@ export const getPaginatedResults = ({
   sortBy,
   sortDirection,
   resultFormat,
-  propertyLangTag
+  propertyLangTag,
 }) => {
-  let q = facetResultSetQuery
-  const perspectiveConfig = backendSearchConfig[resultClass]
+  let q = facetResultSetQuery;
+  const perspectiveConfig = backendSearchConfig[resultClass];
   const {
     endpoint,
     facets,
     facetClass,
     defaultConstraint = null,
     langTag = null,
-    langTagSecondary = null
-  } = perspectiveConfig
-  const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
+    langTagSecondary = null,
+  } = perspectiveConfig;
+  const resultClassConfig = perspectiveConfig.resultClasses[resultClass];
   const {
     propertiesQueryBlock,
-    filterTarget = 'id',
+    filterTarget = "id",
     resultMapper = makeObjectList,
     resultMapperConfig = null,
-    postprocess = null
-  } = resultClassConfig.paginatedResultsConfig
+    postprocess = null,
+  } = resultClassConfig.paginatedResultsConfig;
   if (constraints == null && defaultConstraint == null) {
-    q = q.replace('<FILTER>', '# no filters')
+    q = q.replace("<FILTER>", "# no filters");
   } else {
-    q = q.replace('<FILTER>', generateConstraintsBlock({
-      backendSearchConfig,
-      facetClass: resultClass, // use resultClass as facetClass
-      constraints,
-      defaultConstraint,
-      filterTarget,
-      facetID: null
-    }))
+    q = q.replace(
+      "<FILTER>",
+      generateConstraintsBlock({
+        backendSearchConfig,
+        facetClass: resultClass, // use resultClass as facetClass
+        constraints,
+        defaultConstraint,
+        filterTarget,
+        facetID: null,
+      })
+    );
   }
   if (sortBy == null) {
-    q = q.replace('<ORDER_BY_TRIPLE>', '')
-    q = q.replace('<ORDER_BY>', '# no sorting')
+    q = q.replace("<ORDER_BY_TRIPLE>", "");
+    q = q.replace("<ORDER_BY>", "# no sorting");
   }
   if (sortBy !== null) {
-    let sortByPredicate
-    if (sortBy.endsWith('Timespan')) {
-      sortByPredicate = sortDirection === 'asc'
-        ? facets[sortBy].sortByAscPredicate
-        : facets[sortBy].sortByDescPredicate
+    let sortByPredicate;
+    if (sortBy.endsWith("Timespan")) {
+      sortByPredicate =
+        sortDirection === "asc"
+          ? facets[sortBy].sortByAscPredicate
+          : facets[sortBy].sortByDescPredicate;
     } else {
-      sortByPredicate = facets[sortBy].sortByPredicate
+      sortByPredicate = facets[sortBy].sortByPredicate;
     }
-    let sortByPattern
-    if (has(facets[sortBy], 'sortByPattern')) {
-      sortByPattern = facets[sortBy].sortByPattern
+    let sortByPattern;
+    if (has(facets[sortBy], "sortByPattern")) {
+      sortByPattern = facets[sortBy].sortByPattern;
     } else {
-      sortByPattern = `OPTIONAL { ?id ${sortByPredicate} ?orderBy }`
+      sortByPattern = `OPTIONAL { ?id ${sortByPredicate} ?orderBy }`;
     }
-    q = q.replace('<ORDER_BY_TRIPLE>', sortByPattern)
-    q = q = q.replace('<ORDER_BY>', `ORDER BY (!BOUND(?orderBy)) ${sortDirection}(?orderBy)`)
+    q = q.replace("<ORDER_BY_TRIPLE>", sortByPattern);
+    q = q = q.replace(
+      "<ORDER_BY>",
+      `ORDER BY (!BOUND(?orderBy)) ${sortDirection}(?orderBy)`
+    );
   }
-  q = q.replace(/<FACET_CLASS>/g, facetClass)
-  q = q.replace('<PAGE>', `LIMIT ${pagesize} OFFSET ${page * pagesize}`)
-  q = q.replace('<RESULT_SET_PROPERTIES>', propertiesQueryBlock)
+  q = q.replace(/<FACET_CLASS>/g, facetClass);
+  q = q.replace("<PAGE>", `LIMIT ${pagesize} OFFSET ${page * pagesize}`);
+  q = q.replace("<RESULT_SET_PROPERTIES>", propertiesQueryBlock);
   if (propertyLangTag) {
-    q = q.replace(/<LANG>/g, propertyLangTag)
+    q = q.replace(/<LANG>/g, propertyLangTag);
   }
   if (langTag) {
-    q = q.replace(/<LANG>/g, langTag)
+    q = q.replace(/<LANG>/g, langTag);
   }
   if (langTagSecondary) {
-    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary)
+    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary);
   }
-  // console.log(endpoint.prefixes + q)
+  // Handle the chapter label for table of content
+  if (propertyLangTag == "en") {
+    q = q.replace(
+      "<CHAPTER_NUMBER_LABEL>",
+      'CONCAT("Chapter ", ?firstLevel__id)'
+    );
+  } else if (propertyLangTag == "et") {
+    q = q.replace(
+      "<CHAPTER_NUMBER_LABEL>",
+      'CONCAT(?firstLevel__id, " peatükk")'
+    );
+  } else {
+    q = q.replace("<CHAPTER_NUMBER_LABEL>", 'CONCAT(?firstLevel__id, " luku")');
+  }
+
+  //console.log(endpoint.prefixes + q);
   return runSelectQuery({
     query: endpoint.prefixes + q,
     endpoint: endpoint.url,
@@ -92,9 +114,9 @@ export const getPaginatedResults = ({
     resultMapper,
     resultMapperConfig,
     postprocess,
-    resultFormat
-  })
-}
+    resultFormat,
+  });
+};
 
 export const getAllResults = ({
   backendSearchConfig,
@@ -109,78 +131,85 @@ export const getAllResults = ({
   fromID = null,
   toID = null,
   period = null,
-  province = null
+  province = null,
 }) => {
-  const finalPerspectiveID = perspectiveID || facetClass
-  const perspectiveConfig = backendSearchConfig[finalPerspectiveID]
+  const finalPerspectiveID = perspectiveID || facetClass;
+  const perspectiveConfig = backendSearchConfig[finalPerspectiveID];
   if (perspectiveConfig === undefined) {
-    console.log(`Error: config not found for perspective "${finalPerspectiveID}"`)
+    console.log(
+      `Error: config not found for perspective "${finalPerspectiveID}"`
+    );
     return Promise.resolve({
       data: null,
-      sparqlQuery: ''
-    })
+      sparqlQuery: "",
+    });
   }
   const {
     endpoint,
     defaultConstraint = null,
     langTag = null,
-    langTagSecondary = null
-  } = perspectiveConfig
-  const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
+    langTagSecondary = null,
+  } = perspectiveConfig;
+  const resultClassConfig = perspectiveConfig.resultClasses[resultClass];
   if (resultClassConfig === undefined) {
-    console.log(`Error: result class "${resultClass}" not defined for perspective "${finalPerspectiveID}"`)
+    console.log(
+      `Error: result class "${resultClass}" not defined for perspective "${finalPerspectiveID}"`
+    );
     return Promise.resolve({
       data: null,
-      sparqlQuery: ''
-    })
+      sparqlQuery: "",
+    });
   }
   const {
     sparqlQuery,
     sparqlQueryNodes = null,
     property = null,
     rdfType = null,
-    filterTarget = 'id',
+    filterTarget = "id",
     resultMapper = makeObjectList,
     resultMapperConfig = null,
-    postprocess = null
-  } = resultClassConfig
-  let q = sparqlQuery
+    postprocess = null,
+  } = resultClassConfig;
+  let q = sparqlQuery;
   if (constraints == null && defaultConstraint == null) {
-    q = q.replace(/<FILTER>/g, '# no filters')
+    q = q.replace(/<FILTER>/g, "# no filters");
   } else {
-    q = q.replace(/<FILTER>/g, generateConstraintsBlock({
-      backendSearchConfig,
-      facetClass,
-      constraints,
-      defaultConstraint,
-      filterTarget,
-      facetID: null
-    }))
+    q = q.replace(
+      /<FILTER>/g,
+      generateConstraintsBlock({
+        backendSearchConfig,
+        facetClass,
+        constraints,
+        defaultConstraint,
+        filterTarget,
+        facetID: null,
+      })
+    );
   }
-  q = q.replace(/<FACET_CLASS>/g, perspectiveConfig.facetClass)
+  q = q.replace(/<FACET_CLASS>/g, perspectiveConfig.facetClass);
   if (langTag) {
-    q = q.replace(/<LANG>/g, langTag)
+    q = q.replace(/<LANG>/g, langTag);
   }
   if (langTagSecondary) {
-    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary)
+    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary);
   }
   if (fromID) {
-    q = q.replace(/<FROM_ID>/g, `<${fromID}>`)
+    q = q.replace(/<FROM_ID>/g, `<${fromID}>`);
   }
   if (toID) {
-    q = q.replace(/<TO_ID>/g, `<${toID}>`)
+    q = q.replace(/<TO_ID>/g, `<${toID}>`);
   }
   if (period) {
-    q = q.replace(/<PERIOD>/g, `<${period}>`)
+    q = q.replace(/<PERIOD>/g, `<${period}>`);
   }
   if (province) {
-    q = q.replace(/<PROVINCE>/g, `<${province}>`)
+    q = q.replace(/<PROVINCE>/g, `<${province}>`);
   }
   if (property) {
-    q = q.replace(/<PROPERTY>/g, property)
+    q = q.replace(/<PROPERTY>/g, property);
   }
   if (rdfType) {
-    q = q.replace(/<RDF_TYPE>/g, rdfType)
+    q = q.replace(/<RDF_TYPE>/g, rdfType);
   }
   if (resultClassConfig.useNetworkAPI) {
     return runNetworkQuery({
@@ -191,11 +220,11 @@ export const getAllResults = ({
       nodes: sparqlQueryNodes,
       optimize,
       limit,
-      queryType: resultClassConfig.queryType
-    })
+      queryType: resultClassConfig.queryType,
+    });
   } else {
     if (uri !== null) {
-      q = q.replace(/<ID>/g, `<${uri}>`)
+      q = q.replace(/<ID>/g, `<${uri}>`);
     }
     // console.log(endpoint.prefixes + q)
     return runSelectQuery({
@@ -205,46 +234,46 @@ export const getAllResults = ({
       resultMapper,
       resultMapperConfig,
       postprocess,
-      resultFormat
-    })
+      resultFormat,
+    });
   }
-}
+};
 
 export const getResultCount = ({
   backendSearchConfig,
   resultClass,
   constraints,
-  resultFormat
+  resultFormat,
 }) => {
-  let q = countQuery
-  const perspectiveConfig = backendSearchConfig[resultClass]
-  const {
-    endpoint,
-    defaultConstraint = null
-  } = perspectiveConfig
+  let q = countQuery;
+  const perspectiveConfig = backendSearchConfig[resultClass];
+  const { endpoint, defaultConstraint = null } = perspectiveConfig;
   if (constraints == null && defaultConstraint == null) {
-    q = q.replace('<FILTER>', '# no filters')
+    q = q.replace("<FILTER>", "# no filters");
   } else {
-    q = q.replace('<FILTER>', generateConstraintsBlock({
-      backendSearchConfig,
-      facetClass: resultClass, // use resultClass as facetClass
-      constraints,
-      defaultConstraint,
-      filterTarget: 'id',
-      facetID: null,
-      filterTripleFirst: true
-    }))
+    q = q.replace(
+      "<FILTER>",
+      generateConstraintsBlock({
+        backendSearchConfig,
+        facetClass: resultClass, // use resultClass as facetClass
+        constraints,
+        defaultConstraint,
+        filterTarget: "id",
+        facetID: null,
+        filterTripleFirst: true,
+      })
+    );
   }
-  q = q.replace(/<FACET_CLASS>/g, perspectiveConfig.facetClass)
+  q = q.replace(/<FACET_CLASS>/g, perspectiveConfig.facetClass);
   // console.log(endpoint.prefixes + q)
   return runSelectQuery({
     query: endpoint.prefixes + q,
     endpoint: endpoint.url,
     useAuth: endpoint.useAuth,
     resultMapper: mapCount,
-    resultFormat
-  })
-}
+    resultFormat,
+  });
+};
 
 export const getByURI = ({
   backendSearchConfig,
@@ -254,54 +283,73 @@ export const getByURI = ({
   constraints,
   uri,
   resultFormat,
-  propertyLangTag
+  propertyLangTag,
 }) => {
-  let perspectiveConfig
+  let perspectiveConfig;
   if (perspectiveID) {
-    perspectiveConfig = backendSearchConfig[perspectiveID]
+    perspectiveConfig = backendSearchConfig[perspectiveID];
   } else {
-    perspectiveConfig = backendSearchConfig[facetClass]
+    perspectiveConfig = backendSearchConfig[facetClass];
   }
   const {
     endpoint,
     langTag = null,
-    langTagSecondary = null
-  } = perspectiveConfig
-  const resultClassConfig = perspectiveConfig.resultClasses[resultClass]
+    langTagSecondary = null,
+  } = perspectiveConfig;
+  const resultClassConfig = perspectiveConfig.resultClasses[resultClass];
   const {
     propertiesQueryBlock,
-    filterTarget = 'related__id',
-    relatedInstances = '',
+    filterTarget = "related__id",
+    relatedInstances = "",
     noFilterForRelatedInstances = false,
     resultMapper = makeObjectList,
     resultMapperConfig = null,
-    postprocess = null
-  } = resultClassConfig.instanceConfig
-  let q = instanceQuery
-  q = q.replace('<PROPERTIES>', propertiesQueryBlock)
-  q = q.replace('<RELATED_INSTANCES>', relatedInstances)
+    postprocess = null,
+  } = resultClassConfig.instanceConfig;
+  let q = instanceQuery;
+  q = q.replace("<PROPERTIES>", propertiesQueryBlock);
+  q = q.replace("<RELATED_INSTANCES>", relatedInstances);
   if (constraints == null || noFilterForRelatedInstances) {
-    q = q.replace('<FILTER>', '# no filters')
+    q = q.replace("<FILTER>", "# no filters");
   } else {
-    q = q.replace('<FILTER>', generateConstraintsBlock({
-      backendSearchConfig,
-      resultClass: resultClass,
-      facetClass: facetClass,
-      constraints: constraints,
-      filterTarget,
-      facetID: null
-    }))
+    q = q.replace(
+      "<FILTER>",
+      generateConstraintsBlock({
+        backendSearchConfig,
+        resultClass: resultClass,
+        facetClass: facetClass,
+        constraints: constraints,
+        filterTarget,
+        facetID: null,
+      })
+    );
   }
-  q = q.replace(/<ID>/g, `<${uri}>`)
+  q = q.replace(/<ID>/g, `<${uri}>`);
   if (langTag) {
-    q = q.replace(/<LANG>/g, langTag)
+    q = q.replace(/<LANG>/g, langTag);
   }
   if (propertyLangTag) {
-    q = q.replace(/<LANG>/g, propertyLangTag)
+    q = q.replace(/<LANG>/g, propertyLangTag);
   }
   if (langTagSecondary) {
-    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary)
+    q = q.replace(/<LANG_SECONDARY>/g, langTagSecondary);
   }
+
+  // Handle the chapter label for table of content
+  if (propertyLangTag == "en") {
+    q = q.replace(
+      "<CHAPTER_NUMBER_LABEL>",
+      'CONCAT("Chapter ", ?firstLevel__id)'
+    );
+  } else if (propertyLangTag == "et") {
+    q = q.replace(
+      "<CHAPTER_NUMBER_LABEL>",
+      'CONCAT(?firstLevel__id, " peatükk")'
+    );
+  } else {
+    q = q.replace("<CHAPTER_NUMBER_LABEL>", 'CONCAT(?firstLevel__id, " luku")');
+  }
+
   // console.log(endpoint.prefixes + q)
   return runSelectQuery({
     query: endpoint.prefixes + q,
@@ -310,6 +358,6 @@ export const getByURI = ({
     resultMapper,
     resultMapperConfig,
     postprocess,
-    resultFormat
-  })
-}
+    resultFormat,
+  });
+};
