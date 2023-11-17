@@ -32,10 +32,10 @@ const styles = () => ({
     marginRight: 8,
     boxShadow: "2px 2px #cacaca"
   },
-  dataContatiner: {
+  dataContainer: {
     display: "flex",
     alignItems: "center"
-  }
+  },
 })
 
 const ObjectListCollapsible = props => {
@@ -118,7 +118,8 @@ const ObjectListCollapsible = props => {
   const renderListItems = data =>
     <>
       {data.map(item =>
-        <li key={item.id}>
+        <li key={item.id} className={classes.dataContainer}>
+          {enableCountryFlag && renderCountryFlag(item.source)}
           {renderItem({ collapsed: false, itemData: item })}
         </li>
       )}
@@ -139,8 +140,8 @@ const ObjectListCollapsible = props => {
   } else if (Array.isArray(data)) {
     data = sortValues ? sortList(data) : data
     return (
-      <div className={classes.dataContatiner}>
-        {enableCountryFlag && renderCountryFlag(data[0].source)}
+      <div className={classes.dataContainer}>
+        {!props.expanded && enableCountryFlag && renderCountryFlag(data[0].source)}
         {!props.expanded && renderItem({ addThreeDots: true, itemData: data[0], isFirstValue: true })}
         <Collapse in={props.expanded} timeout='auto' unmountOnExit>
           {numberedList ? renderNumberedList(data) : renderBulletedList(data)}
@@ -149,7 +150,7 @@ const ObjectListCollapsible = props => {
     )
   } else {
     return (
-      <div className={classes.dataContatiner}>
+      <div className={classes.dataContainer}>
         {enableCountryFlag && renderCountryFlag(data.source)}
         {renderItem({ addThreeDots: shortenLabel, itemData: data })}
       </div>
