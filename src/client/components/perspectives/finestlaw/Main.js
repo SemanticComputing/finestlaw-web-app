@@ -208,7 +208,6 @@ const Main = (props) => {
           variant={descriptionVariant}
           align="center"
           color="textPrimary"
-          paragraphs
         >
           {intl.getHTML("mainPageUnderConstruction")}
         </Typography>
