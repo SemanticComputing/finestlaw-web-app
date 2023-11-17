@@ -48,6 +48,7 @@ const TopBarInfoPage = (props) => {
         countries was carried out in February–August 2021. The result of this
         fact-finding mission was published as the{" "}
         <a
+          target="_blank"
           className={classes.link}
           href="https://www.norden.org/en/publication/baseline-study-cross-border-data-exchange-nordic-and-baltic-countries "
         >
@@ -61,6 +62,7 @@ const TopBarInfoPage = (props) => {
         Proof-of-Concept study was carried out in 2022. It will be available on
         the project pages of the project{" "}
         <a
+          target="_blank"
           className={classes.link}
           href="https://wiki.dvv.fi/pages/viewpage.action?pageId=117377490"
         >
@@ -101,29 +103,50 @@ const TopBarInfoPage = (props) => {
         </h3>
         <ul>
           <li>
-            <a className={classes.link} href="https://www.retsinformation.dk">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://www.retsinformation.dk"
+            >
               Denmark
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://www.riigiteataja.ee">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://www.riigiteataja.ee"
+            >
               Estonia
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://www.finlex.fi">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://www.finlex.fi"
+            >
               Finland
             </a>
-            <a className={classes.noBoldLink} href="https://data.finlex.fi">
+            <a
+              target="_blank"
+              className={classes.noBoldLink}
+              href="https://data.finlex.fi"
+            >
               {" "}
               (Extra source)
             </a>
           </li>
           <li>
-            <a className={classes.link} href="http://www.stjornartidindi.is">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="http://www.stjornartidindi.is"
+            >
               Iceland
             </a>
             <a
+              target="_blank"
               className={classes.noBoldLink}
               href="http://www.althingi.is/vefur/lagasafn.html"
             >
@@ -132,15 +155,24 @@ const TopBarInfoPage = (props) => {
             </a>
           </li>
           <li>
-            <a className={classes.link} href="http://www.likumi.lv">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="http://www.likumi.lv"
+            >
               Latvia
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://tar.e-tar.lt">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://tar.e-tar.lt"
+            >
               Lithuania
             </a>
             <a
+              target="_blank"
               className={classes.noBoldLink}
               href="https://e-seimas.lrs.lt/portal/documentSearch/lt"
             >
@@ -149,15 +181,24 @@ const TopBarInfoPage = (props) => {
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://www.lovdata.no">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://www.lovdata.no"
+            >
               Norway
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://lagrummet.se">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://lagrummet.se"
+            >
               Sweden
             </a>
             <a
+              target="_blank"
               className={classes.noBoldLink}
               href="https://rkrattsbaser.gov.se/sfsr"
             >
@@ -167,6 +208,7 @@ const TopBarInfoPage = (props) => {
           </li>
           <li>
             <a
+              target="_blank"
               className={classes.link}
               href="https://op.europa.eu/en/web/forum/european-union"
             >
@@ -174,12 +216,17 @@ const TopBarInfoPage = (props) => {
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://n-lex.europa.eu/n-lex/">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://n-lex.europa.eu/n-lex/"
+            >
               N-Lex – gateway to national law in the EU
             </a>
           </li>
           <li>
             <a
+              target="_blank"
               className={classes.link}
               href="https://europa.eu/youreurope/index.htm"
             >
@@ -188,6 +235,7 @@ const TopBarInfoPage = (props) => {
           </li>
           <li>
             <a
+              target="_blank"
               className={classes.link}
               href="https://eur-lex.europa.eu/browse/eurovoc.html"
             >
@@ -196,6 +244,7 @@ const TopBarInfoPage = (props) => {
           </li>
           <li>
             <a
+              target="_blank"
               className={classes.link}
               href="https://eur-lex.europa.eu/eli-register/about.html"
             >
@@ -203,7 +252,11 @@ const TopBarInfoPage = (props) => {
             </a>
           </li>
           <li>
-            <a className={classes.link} href="https://www.lakisampo.fi">
+            <a
+              target="_blank"
+              className={classes.link}
+              href="https://www.lakisampo.fi"
+            >
               LawSampo - Finland
             </a>
           </li>
