@@ -155,6 +155,7 @@ class InstancePageTable extends React.Component {
                   sourceExternalLink,
                   renderAsHTML,
                   HTMLParserTask,
+                  enableCountryFlag
                 } = row
                 let { previewImageHeight } = row
                 if (screenSize === 'xs' || screenSize === 'sm') {
@@ -211,6 +212,7 @@ class InstancePageTable extends React.Component {
                       renderAsHTML={renderAsHTML}
                       HTMLParserTask={HTMLParserTask}
                       referencedTerm={data.referencedTerm}
+                      enableCountryFlag={enableCountryFlag}
                     />
                   </TableRow>
                 )

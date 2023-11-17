@@ -163,6 +163,16 @@
       "numberedList": false
     },
     {
+      "id": "similarStatute",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": false,
+      "numberedList": false,
+      "onlyOnInstancePage": true,
+      "enableCountryFlag": true
+    },
+    {
       "id": "source",
       "valueType": "string",
       "makeLink": true,

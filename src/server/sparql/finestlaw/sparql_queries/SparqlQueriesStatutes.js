@@ -198,6 +198,19 @@ export const statutePropertiesInstancePage = `
       BIND('Link to source' as ?sourceLink__prefLabel)
       BIND(?sourceLink__id as ?sourceLink__dataProviderUrl)
     }
+    UNION
+    {
+      ?id fess:similar_to ?similarStatute__statute .
+      {?similarStatute__statute skos:prefLabel ?similarStatute__prefLabel .}
+      UNION
+      {?similarStatute__statute fes:translated_prefLabel ?similarStatute__prefLabel .} 
+      ?similarStatute__statute dc:source ?similarStatute__source .
+      BIND(?similarStatute__statute as ?similarStatute__id)
+      FILTER(LANG(?similarStatute__prefLabel) = '<LANG>')
+
+      # create link for React Router:
+      BIND(CONCAT("/statutes/page/", REPLACE(STR(?similarStatute__id), "http://ldf.fi/lawsampo/", "")) AS ?similarStatute__dataProviderUrl)
+    }
     ${sectionBlock}
 `;
 

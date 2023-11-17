@@ -25,6 +25,6 @@ export const prefixes = `
   PREFIX fe: <http://ldf.fi/finest/>
   PREFIX fes: <http://ldf.fi/schema/finestlaw/>
   PREFIX dc: <http://purl.org/dc/elements/1.1/>
-  PREFIX fec: <http://ldf.fi/finestlaw/situations/> 
-  
-  `
+  PREFIX fec: <http://ldf.fi/finestlaw/situations/>
+  PREFIX fess: <http://ldf.fi/finestlaw/similarities/>
+  `;

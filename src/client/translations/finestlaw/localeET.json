@@ -224,6 +224,10 @@
           "missingValueLabel": "ei direktiiv",
           "description": "Määruses viidatud EU Ldirektiiv"
         },
+        "similarStatute": {
+          "label": "Sarnane seadus",
+          "description": "Sarnane seadus"
+        },
         "source": {
           "label": "Allikas",
           "description": "Seaduste allikas."

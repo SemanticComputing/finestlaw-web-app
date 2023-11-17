@@ -162,6 +162,10 @@
           "missingValueLabel": "no directive",
           "description": "Eu directive"
         },
+        "similarStatute": {
+          "label": "Similar Statute",
+          "description": "Similar statute"
+        },
         "source": {
           "label": "Source",
           "description": "The source of the legislations."
