@@ -160,7 +160,7 @@
         "euDirective": {
           "label": "EU Direktiiv",
           "missingValueLabel": "ei direktiiv",
-          "description": "Määruses viidatud EU Ldirektiiv"
+          "description": "Määruses viidatud EU direktiiv"
         },
         "source": {
           "label": "Allikas",
@@ -183,58 +183,17 @@
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Sellel lehel on näha õigusaktide sisu ja metaandmed. Määruste info põhineb Semantinen Finlexi ja Riigi Teataja materjalil. Vaade sisaldab kolme vahekaardid: </p><ul class= \"MuiTypography-root MuiTypography-body1\"><li><strong>CONTENT</STRONG> kuvab õigusaktide tekstilise sisu.</li><li><strong> Vahekaardil >ÜKSIKASJAD</STRONG> kuvatakse põhikirja metaandmed ja link õigusakti algallikale.</li><li> Vahekaart <strong>AVA YASGUI-s</strong> sisaldab linki päringu avamiseks, mis tagastab põhikirja teave YASGUI rakenduses. See vahekaart on mõeldud rakenduste arendajatele.</li></ul>"
       },
       "properties": {
-        "uri": {
-          "label": "URI identifikaator",
-          "description": "Määruse ühtne ressursitunnus"
-        },
-        "prefLabel": {
-          "label": "Seadus",
-          "description": "Määruse nimetus"
-        },
-        "firstLevel": {
-          "label": "Lõigud",
-          "description": "Lõigud"
-        },
-        "textSearch": {
-          "label": "Tekstiotsing",
-          "description": "Tekstiotsing"
-        },
-        "statuteType": {
-          "label": "Reegli Tüüp",
-          "description": "Reegli tüüp"
-        },
-        "enforcementDate": {
-          "label": "Läbipääs",
-          "description": "Õigusakti viimase versiooni jõustumise kuupäev"
-        },
-        "keyword": {
-          "label": "EuroVoc Märksõna",
-          "description": "EuroVoc Märksõna"
-        },
-        "finSituationCategory": {
-          "label": "Soome Eluolu",
-          "description": "Soome eluolu"
-        },
-        "estSituationCategory": {
-          "label": "Eesti Eluolu",
-          "description": "Eesti eluolu"
-        },
-        "euDirective": {
-          "label": "EU Direktiiv",
-          "missingValueLabel": "ei direktiiv",
-          "description": "Määruses viidatud EU Ldirektiiv"
-        },
-        "similarStatute": {
-          "label": "Sarnane seadus",
-          "description": "Sarnane seadus"
-        },
         "source": {
           "label": "Allikas",
           "description": "Seaduste allikas."
         },
-        "sourceLink": {
-          "label": "Link algallikale",
-          "description": "Link algallikale"
+        "prefLabel": {
+          "label": "EU Direktiiv",
+          "description": "EU Direktiivs"
+        },
+        "textSearch": {
+          "label": "Tekstiotsing",
+          "description": "Tekstiotsing"
         }
       }
     }
