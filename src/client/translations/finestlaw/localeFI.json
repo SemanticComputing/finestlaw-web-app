@@ -183,58 +183,17 @@
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">Tällä sivulla näkyy lainsäädännön sisältö ja metatiedot. Säädösten tiedot perustuvat Semanttisen Finlexin ja Riigi Teatajan aineistoon. Näkymä sisältää kolme välilehteä: </p><ul class=\"MuiTypography-root MuiTypography-body1\"> <li><strong>SISÄLTÖ</STRONG>-välilehti näyttää lain tekstisisällön.</li><li><strong>TIEDOT</STRONG>-välilehti näyttää säädöksen metatiedot ja linkin lain alkuperäiseen lähteeseen.</li><li><strong>AVAA YASGUI-SOVELLUKSESSA</strong>-välilehti sisältää linkinsäädöksen tiedot palauttavan kyselyn avaamiseen YASGUI-sovelluksessa. Tämä välilehti on tarkoitettu sovelluskehittäjille.</li></ul>"
       },
       "properties": {
-        "uri": {
-          "label": "URI-tunniste",
-          "description": "Säädöksen Uniform Resource Identifier -tunniste"
-        },
-        "prefLabel": {
-          "label": "Säädös",
-          "description": "Säädöksen nimi"
-        },
-        "firstLevel": {
-          "label": "Pykälät",
-          "description": "Pykälät"
-        },
-        "textSearch": {
-          "label": "Tekstihaku",
-          "description": "Tekstihaku"
-        },
-        "statuteType": {
-          "label": "Säännön Tyyppi",
-          "description": "Säännön tyyppi"
-        },
-        "enforcementDate": {
-          "label": "Voimaantulo",
-          "description": "Säädöksen uusimman version voimaantulopäivämäärä"
-        },
-        "keyword": {
-          "label": "EuroVoc Avainsana",
-          "description": "EuroVoc Avainsana"
-        },
-        "finSituationCategory": {
-          "label": "Suomalainen Elämäntilanne",
-          "description": "Suomalainen elämäntilanne"
-        },
-        "estSituationCategory": {
-          "label": "Viron Elämäntilanne",
-          "description": "Viron elämäntilanne"
-        },
-        "euDirective": {
-          "label": "EU-direktiivi",
-          "missingValueLabel": "ei direktiiviä",
-          "description": "Säädöksen viittaama EU-direktiivi"
-        },
-        "similarStatute": {
-          "label": "Samanlainen laki",
-          "description": "Samanlainen laki"
-        },
         "source": {
           "label": "Lähde",
           "description": "Lakien lähde."
         },
-        "sourceLink": {
-          "label": "Linkki alkuperäiseen lähteeseen",
-          "description": "Linkki alkuperäiseen lähteeseen"
+        "prefLabel": {
+          "label": "EU-direktiivi",
+          "description": "EU-direktiivi"
+        },
+        "textSearch": {
+          "label": "Tekstihaku",
+          "description": "Tekstihaku"
         }
       }
     }

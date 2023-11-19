@@ -106,7 +106,7 @@ export const getPaginatedResults = ({
     q = q.replace("<CHAPTER_NUMBER_LABEL>", 'CONCAT(?firstLevel__id, " luku")');
   }
 
-  //console.log(endpoint.prefixes + q);
+  // console.log(endpoint.prefixes + q);
   return runSelectQuery({
     query: endpoint.prefixes + q,
     endpoint: endpoint.url,

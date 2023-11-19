@@ -187,12 +187,19 @@ createBackendSearchConfig().then((backendSearchConfig) => {
 
   app.post(`${apiPath}/:resultClass/page/:uri`, async (req, res, next) => {
     const { params, body } = req;
+    // Handling EU directive uri
+    // eg, convert euDirectives/page/dir_1997_68_oj to euDirectives/page/dir/1997/68/oj, it is because :uri cannot contain "/",
+    // hence change "/" to "_" then change it back to "/"
+    const uri =
+      params.uri.indexOf("http://data.europa.eu/eli") >= 0
+        ? params.uri.split("_").join("/")
+        : params.uri;
     try {
       const data = await getByURI({
         backendSearchConfig,
         perspectiveID: body.perspectiveID,
         resultClass: params.resultClass,
-        uri: params.uri,
+        uri: uri,
         facetClass: body.facetClass,
         constraints: body.constraints,
         resultFormat: "json",

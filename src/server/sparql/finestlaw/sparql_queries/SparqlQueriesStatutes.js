@@ -118,7 +118,8 @@ export const statuteProperties = `
     {
       ?id eli:transposes ?euDirective__id .
       ?euDirective__id skos:prefLabel ?euDirective__prefLabel .
-      BIND(?euDirective__id as ?euDirective__dataProviderUrl)
+      # BIND(?euDirective__id as ?euDirective__dataProviderUrl)
+      BIND(CONCAT("/euDirectives/page/", REPLACE(REPLACE(STR(?euDirective__id), "http://data.europa.eu/eli/", ""), "/", "_")) AS ?euDirective__dataProviderUrl)
     }
     UNION
     {
@@ -182,7 +183,8 @@ export const statutePropertiesInstancePage = `
     {
       ?id eli:transposes ?euDirective__id .
       ?euDirective__id skos:prefLabel ?euDirective__prefLabel .
-      BIND(?euDirective__id as ?euDirective__dataProviderUrl)
+      # BIND(?euDirective__id as ?euDirective__dataProviderUrl)
+      BIND(CONCAT("/euDirectives/page/", REPLACE(REPLACE(STR(?euDirective__id), "http://data.europa.eu/eli/", ""), "/", "_")) AS ?euDirective__dataProviderUrl)
     }
     UNION
     {
@@ -212,6 +214,36 @@ export const statutePropertiesInstancePage = `
       BIND(CONCAT("/statutes/page/", REPLACE(STR(?similarStatute__id), "http://ldf.fi/lawsampo/", "")) AS ?similarStatute__dataProviderUrl)
     }
     ${sectionBlock}
+`;
+
+export const euDirectiveProperties = `{
+  { 
+    ?id skos:prefLabel ?prefLabel__id .}
+    BIND(?prefLabel__id as ?prefLabel__prefLabel)
+    FILTER(LANG(?prefLabel__id) = '<LANG>')
+
+    # create link for React Router:
+    #BIND(CONCAT("/euDirectives/page/", REPLACE(STR(?id), "http://data.europa.eu/eli/", "")) AS ?prefLabel__dataProviderUrl)
+    BIND(CONCAT("/euDirectives/page/", REPLACE(REPLACE(STR(?id), "http://data.europa.eu/eli/", ""), "/", "_")) AS ?prefLabel__dataProviderUrl)
+  }`;
+export const euDirectivePropertiesInstancePage = `{
+  {
+    ?id skos:prefLabel ?prefLabel__id .}
+    BIND(?prefLabel__id as ?prefLabel__prefLabel)
+    FILTER(LANG(?prefLabel__id) = '<LANG>')
+
+    # create link for React Router:
+    BIND(CONCAT("/euDirectives/page/", REPLACE(REPLACE(STR(?id), "http://data.europa.eu/eli/", ""), "/", "_")) AS ?prefLabel__dataProviderUrl)
+    # create link to Original source
+    BIND('Link to source' as ?source__prefLabel)
+    BIND(?id as ?source__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id lss:html ?html_ .
+    BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<head />|<body>|</body>", "") as ?contentHTML)
+    FILTER(LANG(?html_) = '<LANG>')
+  }
 `;
 
 export const knowledgeGraphMetadataQuery = `

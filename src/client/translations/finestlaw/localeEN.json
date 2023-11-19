@@ -187,58 +187,17 @@
         "description": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\">This page shows the content and metadata of legislation. The information of the regulations is based on the material of Semantinen Finlex and Riigi Teataja. The view contains three tabs: </p><ul class= \"MuiTypography-root MuiTypography-body1\"><li><strong>CONTENT</STRONG> tab displays the textual content of the legislation.</li><li><strong The >DETAILS</STRONG> tab displays the statute's metadata and a link to the original source of the legislation.</li><li> <strong>OPEN IN YASGUI</strong> tab contains a link to open a query that Returns the statute's information in the YASGUI application. This tab is for for application developers.</li></ul>"
       },
       "properties": {
-        "uri": {
-          "label": "URI",
-          "description": "Statute Uniform Resource Identifier"
+        "source": {
+          "label": "Source",
+          "description": "Source"
         },
         "prefLabel": {
-          "label": "Statute",
-          "description": "Name of the statute."
-        },
-        "statute": {
-          "label": "Laws and acts",
-          "description": "Laws and acts"
-        },
-        "firstLevel": {
-          "label": "Paragraphs",
-          "description": "Paragraphs"
+          "label": "EU Directive",
+          "description": "EU Directive"
         },
         "textSearch": {
           "label": "Text Search",
           "description": "Text Search"
-        },
-        "statuteType": {
-          "label": "Statute Type",
-          "description": "Statute type"
-        },
-        "enforcementDate": {
-          "label": "Enforcement Date",
-          "description": "Enforcement Date"
-        },
-        "keyword": {
-          "label": "Keyword",
-          "description": "Keyword"
-        },
-        "finSituationCategory": {
-          "label": "Finnish life situation",
-          "description": "Finnish life situation"
-        },
-        "estSituationCategory": {
-          "label": "Estonian life situation",
-          "description": "Estonian life situation"
-        },
-        "euDirective": {
-          "label": "Eu directive",
-          "missingValueLabel": "no directive",
-          "description": "Eu directive"
-        },
-        "source": {
-          "label": "Source",
-          "description": "The source of the legislations."
-        },
-        "sourceLink": {
-          "label": "Link to the original source",
-          "description": "Link to the original source"
         }
       }
     }

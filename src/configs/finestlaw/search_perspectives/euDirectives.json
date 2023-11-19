@@ -1,14 +1,14 @@
 {
   "id": "euDirectives",
   "endpoint": {
-    "url": "http://localhost:3068/ds/sparql",
+    "url": "https://ldf.fi/finestlaw/sparql",
     "useAuth": true,
     "prefixesFile": "SparqlQueriesPrefixes.js"
   },
   "sparqlQueriesFile": "SparqlQueriesStatutes.js",
-  "baseURI": "http://ldf.fi/lawsampo",
+  "baseURI": "http://data.europa.eu/eli",
   "URITemplate": "<BASE_URI>/<LOCAL_ID>",
-  "facetClass": "lss:Statute",
+  "facetClass": "lss:EULegalAct",
   "frontPageImage": "main_page/euDirectives.png",
   "searchMode": "faceted-search",
   "defaultActiveFacets": ["prefLabel"],
@@ -21,13 +21,13 @@
         "component": "ResultTable",
         "tabPath": "table",
         "tabIcon": "CalendarViewDay",
-        "propertiesQueryBlock": "statuteProperties",
+        "propertiesQueryBlock": "euDirectiveProperties",
         "pagesize": 20,
         "sortBy": null,
         "sortDirection": null
       },
       "instanceConfig": {
-        "propertiesQueryBlock": "statutePropertiesInstancePage",
+        "propertiesQueryBlock": "euDirectivePropertiesInstancePage",
         "instancePageResultClasses": {
           "instancePageContextualContent": {
             "tabID": 0,
@@ -88,7 +88,7 @@
   },
   "properties": [
     {
-      "id": "uri",
+      "id": "source",
       "valueType": "object",
       "makeLink": true,
       "externalLink": true,
@@ -105,79 +105,6 @@
       "numberedList": false,
       "minWidth": 250,
       "enableCountryFlag": true
-    },
-    {
-      "id": "statuteType",
-      "valueType": "object",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "firstLevel",
-      "valueType": "sectionOfALaw",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "enforcementDate",
-      "valueType": "object",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "keyword",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": true,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "finSituationCategory",
-      "valueType": "object",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "estSituationCategory",
-      "valueType": "object",
-      "makeLink": false,
-      "externalLink": false,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "euDirective",
-      "valueType": "object",
-      "makeLink": true,
-      "externalLink": true,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "source",
-      "valueType": "string",
-      "makeLink": true,
-      "externalLink": false,
-      "sortValues": false,
-      "numberedList": false
-    },
-    {
-      "id": "sourceLink",
-      "valueType": "object",
-      "onlyOnInstancePage": true,
-      "makeLink": true,
-      "externalLink": true,
-      "sortValues": false,
-      "numberedList": false
     }
   ],
   "facets": {
@@ -188,91 +115,6 @@
       "containerClass": "one",
       "facetType": "text",
       "filterType": "textFilter"
-    },
-    "statuteType": {
-      "containerClass": "ten",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-      "facetType": "list",
-      "filterType": "uriFilter",
-      "pieChartButton": true,
-      "predicate": "eli:type_document",
-      "sortButton": true,
-      "sortBy": "instanceCount",
-      "sortByPredicate": "eli:type_document/skos:prefLabel",
-      "sortDirection": "desc"
-    },
-    "enforcementDate": {
-      "containerClass": "ten",
-      "facetType": "hierarchical",
-      "filterType": "uriFilter",
-      "parentProperty": "skos:broader",
-      "predicate": "lss:timespan",
-      "searchField": true,
-      "sortByPredicate": "lss:timespan/skos:prefLabel"
-    },
-    "keyword": {
-      "containerClass": "ten",
-      "facetType": "hierarchical",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-      "filterType": "uriFilter",
-      "pieChartButton": true,
-      "parentProperty": "skos:broader",
-      "predicate": "fes:eurovoc_keyword",
-      "searchField": true,
-      "sortButton": true,
-      "sortBy": "instanceCount",
-      "sortByPredicate": "fes:eurovoc_keyword/skos:prefLabel",
-      "sortDirection": "desc"
-    },
-    "finSituationCategory": {
-      "containerClass": "ten",
-      "facetType": "list",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-      "filterType": "uriFilter",
-      "pieChartButton": true,
-      "predicate": "lss:situation_category",
-      "searchField": true,
-      "sortButton": true,
-      "sortBy": "instanceCount",
-      "sortByPredicate": "lss:situation_category/skos:prefLabel",
-      "sortDirection": "desc"
-    },
-    "estSituationCategory": {
-      "containerClass": "ten",
-      "facetType": "list",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-      "filterType": "uriFilter",
-      "pieChartButton": true,
-      "predicate": "lss:est_situation_category",
-      "searchField": true,
-      "sortButton": true,
-      "sortBy": "instanceCount",
-      "sortByPredicate": "lss:est_situation_category/skos:prefLabel",
-      "sortDirection": "desc"
-    },
-    "euDirective": {
-      "containerClass": "ten",
-      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-      "facetType": "list",
-      "filterType": "uriFilter",
-      "predicate": "eli:transposes",
-      "searchField": true,
-      "sortButton": true,
-      "sortBy": "instanceCount",
-      "sortByPredicate": "eli:transposes/skos:prefLabel",
-      "sortDirection": "desc"
-    },
-    "source": {
-      "containerClass": "ten",
-      "facetType": "list",
-      "filterType": "uriFilter",
-      "predicate": "dc:source",
-      "literal": true,
-      "searchField": true,
-      "sortButton": true,
-      "sortBy": "instanceCount",
-      "sortByPredicate": "dc:source",
-      "sortDirection": "desc"
     }
   }
 }
