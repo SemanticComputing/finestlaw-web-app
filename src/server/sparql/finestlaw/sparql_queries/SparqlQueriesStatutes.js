@@ -226,6 +226,7 @@ export const euDirectiveProperties = `{
     #BIND(CONCAT("/euDirectives/page/", REPLACE(STR(?id), "http://data.europa.eu/eli/", "")) AS ?prefLabel__dataProviderUrl)
     BIND(CONCAT("/euDirectives/page/", REPLACE(REPLACE(STR(?id), "http://data.europa.eu/eli/", ""), "/", "_")) AS ?prefLabel__dataProviderUrl)
   }`;
+  
 export const euDirectivePropertiesInstancePage = `{
   {
     ?id skos:prefLabel ?prefLabel__id .}
@@ -247,7 +248,9 @@ export const euDirectivePropertiesInstancePage = `{
   UNION
   {
     ?id fes:statute ?statute__id .
-    ?statute__id skos:prefLabel ?statute__prefLabel .
+    {?statute__id skos:prefLabel ?statute__prefLabel .}
+    UNION
+    {?statute__id fes:translated_prefLabel ?statute__prefLabel .}
     ?statute__id dc:source ?statute__source .
     FILTER(LANG(?statute__prefLabel) = '<LANG>')
 
