@@ -194,6 +194,10 @@
         "textSearch": {
           "label": "Tekstihaku",
           "description": "Tekstihaku"
+        },
+        "statute": {
+          "label": "Linkki lakiin",
+          "description": "Linkki lakiin"
         }
       }
     }

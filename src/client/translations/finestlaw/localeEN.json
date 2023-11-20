@@ -198,6 +198,10 @@
         "textSearch": {
           "label": "Text Search",
           "description": "Text Search"
+        },
+        "statute": {
+          "label": "Link to statute",
+          "description": "Link to statute"
         }
       }
     }

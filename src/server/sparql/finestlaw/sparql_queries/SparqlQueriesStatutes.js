@@ -244,6 +244,16 @@ export const euDirectivePropertiesInstancePage = `{
     BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<head />|<body>|</body>", "") as ?contentHTML)
     FILTER(LANG(?html_) = '<LANG>')
   }
+  UNION
+  {
+    ?id fes:statute ?statute__id .
+    ?statute__id skos:prefLabel ?statute__prefLabel .
+    ?statute__id dc:source ?statute__source .
+    FILTER(LANG(?statute__prefLabel) = '<LANG>')
+
+    # create link for React Router:
+    BIND(CONCAT("/statutes/page/", REPLACE(STR(?statute__id), "http://ldf.fi/lawsampo/", "")) AS ?statute__dataProviderUrl)
+  }
 `;
 
 export const knowledgeGraphMetadataQuery = `

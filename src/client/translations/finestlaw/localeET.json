@@ -194,6 +194,10 @@
         "textSearch": {
           "label": "Tekstiotsing",
           "description": "Tekstiotsing"
+        },
+        "statute": {
+          "label": "Link seadusele",
+          "description": "Link seadusele"
         }
       }
     }
