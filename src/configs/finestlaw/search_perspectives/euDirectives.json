@@ -113,11 +113,11 @@
       "filterType": "uriFilter",
       "pieChartButton": true,
       "parentProperty": "skos:broader",
-      "predicate": "fes:eurovoc_keyword",
+      "predicate": "fes:statute/fes:eurovoc_keyword",
       "searchField": true,
       "sortButton": true,
       "sortBy": "instanceCount",
-      "sortByPredicate": "fes:eurovoc_keyword/skos:prefLabel",
+      "sortByPredicate": "fes:statute/fes:eurovoc_keyword/skos:prefLabel",
       "sortDirection": "desc"
     }
   }

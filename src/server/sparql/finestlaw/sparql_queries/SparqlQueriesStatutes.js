@@ -240,7 +240,7 @@ export const euDirectiveProperties = `
   }
   UNION
   {
-    ?id fes:eurovoc_keyword ?keyword__id .
+    ?id fes:statute/fes:eurovoc_keyword ?keyword__id .
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     FILTER(LANG(?keyword__prefLabel) = '<LANG>')
   }
@@ -278,7 +278,7 @@ export const euDirectivePropertiesInstancePage = `
   }
   UNION
   {
-    ?id fes:eurovoc_keyword ?keyword__id .
+    ?id fes:statute/fes:eurovoc_keyword ?keyword__id .
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     FILTER(LANG(?keyword__prefLabel) = '<LANG>')
   }
