@@ -216,20 +216,39 @@ export const statutePropertiesInstancePage = `
     ${sectionBlock}
 `;
 
-export const euDirectiveProperties = `{
+export const euDirectiveProperties = `
   { 
-    ?id skos:prefLabel ?prefLabel__id .}
+    ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id as ?prefLabel__prefLabel)
     FILTER(LANG(?prefLabel__id) = '<LANG>')
 
     # create link for React Router:
     #BIND(CONCAT("/euDirectives/page/", REPLACE(STR(?id), "http://data.europa.eu/eli/", "")) AS ?prefLabel__dataProviderUrl)
     BIND(CONCAT("/euDirectives/page/", REPLACE(REPLACE(STR(?id), "http://data.europa.eu/eli/", ""), "/", "_")) AS ?prefLabel__dataProviderUrl)
-  }`;
-  
-export const euDirectivePropertiesInstancePage = `{
+  }
+  UNION
   {
-    ?id skos:prefLabel ?prefLabel__id .}
+    ?id fes:statute ?statute__id .
+    {?statute__id skos:prefLabel ?statute__prefLabel .}
+    UNION
+    {?statute__id fes:translated_prefLabel ?statute__prefLabel .}
+    ?statute__id dc:source ?statute__source .
+    FILTER(LANG(?statute__prefLabel) = '<LANG>')
+
+    # create link for React Router:
+    BIND(CONCAT("/statutes/page/", REPLACE(STR(?statute__id), "http://ldf.fi/lawsampo/", "")) AS ?statute__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id fes:eurovoc_keyword ?keyword__id .
+    ?keyword__id skos:prefLabel ?keyword__prefLabel .
+    FILTER(LANG(?keyword__prefLabel) = '<LANG>')
+  }
+`;
+  
+export const euDirectivePropertiesInstancePage = `
+  {
+    ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id as ?prefLabel__prefLabel)
     FILTER(LANG(?prefLabel__id) = '<LANG>')
 
@@ -256,6 +275,12 @@ export const euDirectivePropertiesInstancePage = `{
 
     # create link for React Router:
     BIND(CONCAT("/statutes/page/", REPLACE(STR(?statute__id), "http://ldf.fi/lawsampo/", "")) AS ?statute__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id fes:eurovoc_keyword ?keyword__id .
+    ?keyword__id skos:prefLabel ?keyword__prefLabel .
+    FILTER(LANG(?keyword__prefLabel) = '<LANG>')
   }
 `;
 
