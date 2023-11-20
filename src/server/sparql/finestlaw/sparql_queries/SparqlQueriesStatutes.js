@@ -228,7 +228,7 @@ export const euDirectiveProperties = `
   }
   UNION
   {
-    ?id fes:statute ?statute__id .
+    ?id ^eli:transposes ?statute__id .
     {?statute__id skos:prefLabel ?statute__prefLabel .}
     UNION
     {?statute__id fes:translated_prefLabel ?statute__prefLabel .}
@@ -266,7 +266,7 @@ export const euDirectivePropertiesInstancePage = `
   }
   UNION
   {
-    ?id fes:statute ?statute__id .
+    ?id ^eli:transposes ?statute__id .
     {?statute__id skos:prefLabel ?statute__prefLabel .}
     UNION
     {?statute__id fes:translated_prefLabel ?statute__prefLabel .}
