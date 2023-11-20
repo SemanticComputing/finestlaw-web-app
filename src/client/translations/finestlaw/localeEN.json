@@ -202,6 +202,10 @@
         "statute": {
           "label": "Link to statute",
           "description": "Link to statute"
+        },
+        "keyword": {
+          "label": "Eurovoc Keyword",
+          "description": "Eurovoc keyword"
         }
       }
     }

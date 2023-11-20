@@ -80,13 +80,20 @@
       "minWidth": 250
     },
     {
+      "id": "keyword",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": false,
+      "numberedList": false
+    },
+    {
       "id": "statute",
       "valueType": "object",
       "makeLink": true,
       "externalLink": false,
       "sortValues": false,
       "numberedList": false,
-      "onlyOnInstancePage": true,
       "enableCountryFlag": true
     }
   ],
@@ -98,6 +105,20 @@
       "containerClass": "one",
       "facetType": "text",
       "filterType": "textFilter"
+    },
+    "keyword": {
+      "containerClass": "ten",
+      "facetType": "hierarchical",
+      "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+      "filterType": "uriFilter",
+      "pieChartButton": true,
+      "parentProperty": "skos:broader",
+      "predicate": "fes:eurovoc_keyword",
+      "searchField": true,
+      "sortButton": true,
+      "sortBy": "instanceCount",
+      "sortByPredicate": "fes:eurovoc_keyword/skos:prefLabel",
+      "sortDirection": "desc"
     }
   }
 }

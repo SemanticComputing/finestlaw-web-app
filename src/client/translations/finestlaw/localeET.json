@@ -202,6 +202,10 @@
         "statute": {
           "label": "Link seadusele",
           "description": "Link seadusele"
+        },
+        "keyword": {
+          "label": "EuroVoc Märksõna",
+          "description": "EuroVoc Märksõna"
         }
       }
     }
