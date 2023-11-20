@@ -162,6 +162,10 @@
           "missingValueLabel": "ei direktiiviä",
           "description": "Säädöksen viittaama EU-direktiivi"
         },
+        "similarStatute": {
+          "label": "Samanlainen laki",
+          "description": "Samanlainen laki"
+        },
         "source": {
           "label": "Lähde",
           "description": "Lakien lähde."
