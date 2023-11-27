@@ -5,9 +5,9 @@
     "description": "FINEST-Laki on semanttinen portaali, joka tarjoaa käyttövalmiita työkaluja oikeudellisten asiakirjojen tutkimiseen ja analysointiin"
   },
   "appTitle": {
-    "short": "FINEST-Laki-Sampo",
-    "mobile": "FINEST-Laki-Sampo",
-    "long": "FINEST-Laki-Sampo",
+    "short": "FINEST-Lakisampo",
+    "mobile": "FINEST-Lakisampo",
+    "long": "FINEST-Lakisampo",
     "subheading": "Suomen ja Viron lainsäädäntö semanttisessa webissä (KEHITYSTYÖ KESKEN)"
   },
   "selectPerspective": "Valitse näkymä aineiston hakua ja tutkimista varten:",

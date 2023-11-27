@@ -5,9 +5,9 @@
     "description": "FINEST-Law is a semantic portal which provides ready-to-use tooling for exploring and analyzing legal documents"
   },
   "appTitle": {
-    "short": "FINEST-Law-Sampo",
-    "mobile": "FINEST-Law-Sampo",
-    "long": "FINEST-Law-Sampo",
+    "short": "FINEST-LawSampo",
+    "mobile": "FINEST-LawSampo",
+    "long": "FINEST-LawSampo",
     "subheading": "Finnish and Estonian Legislation on the Semantic Web (UNDER DEVELOPMENT)"
   },
   "selectPerspective": "Select statutes perspective to search and browse the legislation data:",
@@ -18,7 +18,7 @@
     "feedback": "feedback",
     "info": {
       "info": "Info",
-      "blog": "Project blog",
+      "blog": "Project page",
       "blogUrl": "https://seco.cs.aalto.fi/projects/finestsampo/",
       "aboutThePortal": "About the Portal"
     },
@@ -146,8 +146,8 @@
           "description": "Enforcement date"
         },
         "keyword": {
-          "label": "Eurovoc Keyword",
-          "description": "Eurovoc keyword"
+          "label": "EuroVoc Keyword",
+          "description": "EuroVoc keyword"
         },
         "finSituationCategory": {
           "label": "Finnish Life Situation",
