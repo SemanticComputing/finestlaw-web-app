@@ -253,6 +253,8 @@ class ResultTable extends React.Component {
           HTMLParserTask={HTMLParserTask}
           referencedTerm={columnData.referencedTerm}
           enableCountryFlag={enableCountryFlag}
+          hasParts={row.hasParts}
+          hasChapters={row.hasChapters}
         />
       )
     })

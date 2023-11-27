@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import TableCell from '@mui/material/TableCell'
-import ObjectListCollapsible from './ObjectListCollapsible'
-import StringList from './StringList'
-import SimpleReactLightbox from 'simple-react-lightbox'
-import ImageGallerySRL from '../main_layout/ImageGallerySRL'
-import SectionOfALawListCollapsible from './SectionOfALawListCollapsible'
+import React from "react";
+import PropTypes from "prop-types";
+import TableCell from "@mui/material/TableCell";
+import ObjectListCollapsible from "./ObjectListCollapsible";
+import StringList from "./StringList";
+import SimpleReactLightbox from "simple-react-lightbox";
+import ImageGallerySRL from "../main_layout/ImageGallerySRL";
+import SectionOfALawListCollapsible from "./SectionOfALawListCollapsible";
 
 const ResultTableCell = (props) => {
   const {
@@ -35,17 +35,17 @@ const ResultTableCell = (props) => {
     showExtraCollapseButton,
     rowId,
     shortenLabel = false,
-    enableCountryFlag
-  } = props
-  let cellContent = null
+    enableCountryFlag,
+  } = props;
+  let cellContent = null;
   const cellStyle = {
     paddingTop: 3,
     paddingBottom: 3,
     ...(height && { height }),
     ...(minWidth && { minWidth }),
-  }
+  };
   switch (valueType) {
-    case 'object':
+    case "object":
       cellContent = (
         <ObjectListCollapsible
           data={data}
@@ -67,14 +67,14 @@ const ResultTableCell = (props) => {
           sourceExternalLink={sourceExternalLink}
           enableCountryFlag={enableCountryFlag}
         />
-      )
-      break
-    case 'sectionOfALaw':
+      );
+      break;
+    case "sectionOfALaw":
       cellContent = (
         <SectionOfALawListCollapsible
           data={data}
-          hasParts={props.hasParts === 'true'}
-          hasChapters={props.hasChapters === 'true'}
+          hasParts={props.hasParts === "true"}
+          hasChapters={props.hasChapters === "true"}
           makeLink={makeLink}
           externalLink={externalLink}
           sortValues={sortValues}
@@ -88,9 +88,9 @@ const ResultTableCell = (props) => {
           sourceExternalLink={sourceExternalLink}
           maxHeight={200}
         />
-      )
-      break
-    case 'string':
+      );
+      break;
+    case "string":
       cellContent = (
         <StringList
           data={data}
@@ -106,29 +106,36 @@ const ResultTableCell = (props) => {
           referencedTerm={referencedTerm}
           numberedList={numberedList}
         />
-      )
-      break
-    case 'image':
+      );
+      break;
+    case "image":
       cellContent =
-        data && data !== '-' ? (
+        data && data !== "-" ? (
           <SimpleReactLightbox>
-            <ImageGallerySRL data={data} previewImageHeight={previewImageHeight} />
+            <ImageGallerySRL
+              data={data}
+              previewImageHeight={previewImageHeight}
+            />
           </SimpleReactLightbox>
         ) : (
-          ''
-        )
+          ""
+        );
   }
-  if (container === 'div') {
-    return <div>{cellContent}</div>
+  if (container === "div") {
+    return <div>{cellContent}</div>;
   }
-  if (container === 'cell') {
-    return <TableCell style={cellStyle}>{cellContent}</TableCell>
+  if (container === "cell") {
+    return <TableCell style={cellStyle}>{cellContent}</TableCell>;
   }
-}
+};
 
 ResultTableCell.propTypes = {
   columnId: PropTypes.string.isRequired,
-  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  data: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.string,
+  ]),
   valueType: PropTypes.string.isRequired,
   makeLink: PropTypes.bool.isRequired,
   externalLink: PropTypes.bool.isRequired,
@@ -142,6 +149,8 @@ ResultTableCell.propTypes = {
   previewImageHeight: PropTypes.number,
   showSource: PropTypes.bool,
   sourceExternalLink: PropTypes.bool,
-}
+  hasParts: PropTypes.string,
+  hasChapters: PropTypes.string,
+};
 
-export default ResultTableCell
+export default ResultTableCell;
