@@ -33,7 +33,7 @@ const SectionOfALawListCollapsible = props => {
   const { data, collapsible } = props
 
   const renderItem = ({ collapsed, itemData, isFirstValue = false }) => {
-    if (isFirstValue && itemData.prefLabel === '') {
+    if (isFirstValue && !itemData.prefLabel) {
       itemData = {
         ...itemData,
         prefLabel: `${itemData.sectionNumber} §`
