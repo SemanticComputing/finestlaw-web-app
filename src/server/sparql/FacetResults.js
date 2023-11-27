@@ -93,16 +93,31 @@ export const getPaginatedResults = ({
   }
   // Handle the chapter label for table of content
   if (propertyLangTag == "en") {
+    q = q.replace("<PART_NUMBER_LABEL>", 'CONCAT("Part ", ?firstLevel__id)');
+    q = q.replace(
+      "<PART_CHAPTER_NUMBER_LABEL>",
+      'CONCAT("Chapter ", ?firstLevel__secondLevel__id)'
+    );
     q = q.replace(
       "<CHAPTER_NUMBER_LABEL>",
       'CONCAT("Chapter ", ?firstLevel__id)'
     );
   } else if (propertyLangTag == "et") {
+    q = q.replace("<PART_NUMBER_LABEL>", 'CONCAT("Osa ", ?firstLevel__id)');
+    q = q.replace(
+      "<PART_CHAPTER_NUMBER_LABEL>",
+      'CONCAT(?firstLevel__secondLevel__id, " peatükk")'
+    );
     q = q.replace(
       "<CHAPTER_NUMBER_LABEL>",
       'CONCAT(?firstLevel__id, " peatükk")'
     );
   } else {
+    q = q.replace("<PART_NUMBER_LABEL>", 'CONCAT("Osa ", ?firstLevel__id)');
+    q = q.replace(
+      "<PART_CHAPTER_NUMBER_LABEL>",
+      'CONCAT(?firstLevel__secondLevel__id, " luku")'
+    );
     q = q.replace("<CHAPTER_NUMBER_LABEL>", 'CONCAT(?firstLevel__id, " luku")');
   }
 
@@ -337,16 +352,31 @@ export const getByURI = ({
 
   // Handle the chapter label for table of content
   if (propertyLangTag == "en") {
+    q = q.replace("<PART_NUMBER_LABEL>", 'CONCAT("Part ", ?firstLevel__id)');
+    q = q.replace(
+      "<PART_CHAPTER_NUMBER_LABEL>",
+      'CONCAT("Chapter ", ?firstLevel__secondLevel__id)'
+    );
     q = q.replace(
       "<CHAPTER_NUMBER_LABEL>",
       'CONCAT("Chapter ", ?firstLevel__id)'
     );
   } else if (propertyLangTag == "et") {
+    q = q.replace("<PART_NUMBER_LABEL>", 'CONCAT("Osa ", ?firstLevel__id)');
+    q = q.replace(
+      "<PART_CHAPTER_NUMBER_LABEL>",
+      'CONCAT(?firstLevel__secondLevel__id, " peatükk")'
+    );
     q = q.replace(
       "<CHAPTER_NUMBER_LABEL>",
       'CONCAT(?firstLevel__id, " peatükk")'
     );
   } else {
+    q = q.replace("<PART_NUMBER_LABEL>", 'CONCAT("Osa ", ?firstLevel__id)');
+    q = q.replace(
+      "<PART_CHAPTER_NUMBER_LABEL>",
+      'CONCAT(?firstLevel__secondLevel__id, " luku")'
+    );
     q = q.replace("<CHAPTER_NUMBER_LABEL>", 'CONCAT(?firstLevel__id, " luku")');
   }
 
