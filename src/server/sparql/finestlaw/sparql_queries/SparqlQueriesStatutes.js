@@ -240,7 +240,7 @@ export const euDirectiveProperties = `
   }
   UNION
   {
-    ?id fes:statute/fes:eurovoc_keyword ?keyword__id .
+    ?id fes:eurovoc_keyword ?keyword__id .
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     FILTER(LANG(?keyword__prefLabel) = '<LANG>')
   }
@@ -260,12 +260,6 @@ export const euDirectivePropertiesInstancePage = `
   }
   UNION
   {
-    ?id lss:html ?html_ .
-    BIND(REPLACE(?html_, "<html>|</html>|<head>|</head>|<head />|<body>|</body>", "") as ?contentHTML)
-    FILTER(LANG(?html_) = '<LANG>')
-  }
-  UNION
-  {
     ?id ^eli:transposes ?statute__id .
     {?statute__id skos:prefLabel ?statute__prefLabel .}
     UNION
@@ -278,7 +272,7 @@ export const euDirectivePropertiesInstancePage = `
   }
   UNION
   {
-    ?id fes:statute/fes:eurovoc_keyword ?keyword__id .
+    ?id fes:eurovoc_keyword ?keyword__id .
     ?keyword__id skos:prefLabel ?keyword__prefLabel .
     FILTER(LANG(?keyword__prefLabel) = '<LANG>')
   }

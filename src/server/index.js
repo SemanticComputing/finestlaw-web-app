@@ -206,7 +206,7 @@ createBackendSearchConfig().then((backendSearchConfig) => {
         propertyLangTag: body.langTag,
       });
       // Fix contentHTML for the Finnish statutes as their htmls don't have lang tag in Finnish
-      if (typeof data?.data[0].html_ !== "string") {
+      if (typeof data?.data[0].html_ !== "string" && !!data?.data[0].html_) {
         const html = data?.data[0].contentHTML[0];
         const newData = {
           ...data,

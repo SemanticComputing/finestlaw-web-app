@@ -13,7 +13,7 @@
   "searchMode": "faceted-search",
   "defaultActiveFacets": ["prefLabel"],
   "defaultTab": "table",
-  "defaultInstancePageTab": "content",
+  "defaultInstancePageTab": "table",
   "resultClasses": {
     "euDirectives": {
       "paginatedResultsConfig": {
@@ -29,20 +29,14 @@
       "instanceConfig": {
         "propertiesQueryBlock": "euDirectivePropertiesInstancePage",
         "instancePageResultClasses": {
-          "instancePageContextualContent": {
-            "tabID": 0,
-            "component": "InstancePageContextualContent",
-            "tabPath": "content",
-            "tabIcon": "Subject"
-          },
           "instancePageTable": {
-            "tabID": 1,
+            "tabID": 0,
             "component": "InstancePageTable",
             "tabPath": "table",
             "tabIcon": "CalendarViewDay"
           },
           "instancePageExport": {
-            "tabID": 2,
+            "tabID": 1,
             "component": "Export",
             "tabPath": "export",
             "tabIcon": "CloudDownload",
@@ -52,7 +46,7 @@
       }
     },
     "export": {
-      "tabID": 2,
+      "tabID": 1,
       "component": "Export",
       "tabPath": "export",
       "tabIcon": "CloudDownload",
@@ -113,11 +107,11 @@
       "filterType": "uriFilter",
       "pieChartButton": true,
       "parentProperty": "skos:broader",
-      "predicate": "fes:statute/fes:eurovoc_keyword",
+      "predicate": "fes:eurovoc_keyword",
       "searchField": true,
       "sortButton": true,
       "sortBy": "instanceCount",
-      "sortByPredicate": "fes:statute/fes:eurovoc_keyword/skos:prefLabel",
+      "sortByPredicate": "fes:eurovoc_keyword/skos:prefLabel",
       "sortDirection": "desc"
     }
   }
