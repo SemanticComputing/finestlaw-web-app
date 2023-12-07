@@ -8,11 +8,10 @@
     "short": "FINEST-LawSampo",
     "mobile": "FINEST-LawSampo",
     "long": "FINEST-LawSampo",
-    "subheading": "Finnish and Estonian Legislation on the Semantic Web (UNDER DEVELOPMENT)"
+    "subheading": "Finnish and Estonian Legislation on the Semantic Web"
   },
   "selectPerspective": "Select statutes perspective to search and browse the legislation data:",
   "mainPageImageLicence": "Images from Canva.com",
-  "mainPageUnderConstruction": "Note! This application is under development.",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "topBar": {
     "feedback": "feedback",
@@ -180,7 +179,7 @@
       "label": "EU directives",
       "mainPageLabel": "EU directives",
       "facetResultsType": "EU directives",
-      "shortDescription": "Faceted search for consolidated EU directives (UNFINISHED PLACEHOLDER)",
+      "shortDescription": "Faceted search for consolidated EU directives",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to the statutes of the Finnish and Estonian consolidated legislation. The facets provide selections to filter the result set, which is shown on the table view. The result view can be selected using the tabs: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TABLE</STRONG> view shows all statutes in the result set. One table row corresponds to one statute. </li> <li> <strong>EXPORT</strong> tab contains a link to open the SPARQL query used to generate the result table view into YASGUI query editor. This is intended for software developers. </li> </ul>",
       "instancePage": {
         "label": "Statutes",

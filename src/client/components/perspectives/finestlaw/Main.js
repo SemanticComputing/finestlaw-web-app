@@ -201,16 +201,6 @@ const Main = (props) => {
             {intl.getHTML("mainPageImageLicence")}
           </Typography>
         </Box>
-        <Typography
-          sx={(theme) => ({
-            marginTop: theme.spacing(10),
-          })}
-          variant={descriptionVariant}
-          align="center"
-          color="textPrimary"
-        >
-          {intl.getHTML("mainPageUnderConstruction")}
-        </Typography>
       </Box>
     </Box>
   );
