@@ -19,11 +19,13 @@
       "info": "Teadmised",
       "blog": "Projekti koduleht",
       "blogUrl": "https://seco.cs.aalto.fi/",
-      "aboutThePortal": "Portaali kohta"
+      "aboutThePortal": "Portaali kohta",
+      "aboutUrl": "https://seco.cs.aalto.fi/projects/finestsampo/about.pdf"
     },
     "searchBarPlaceHolder": "Otsige kogu andmestikku",
     "searchBarPlaceHolderShort": "Otsing",
-    "instructions": "juhiseid"
+    "instructions": "juhiseid",
+    "instructionsUrl": "https://seco.cs.aalto.fi/projects/finestsampo/finestsampo-instructions.pdf"
   },
   "facetBar": {
     "results": "Skoor",

@@ -19,11 +19,13 @@
       "info": "Info",
       "blog": "Project page",
       "blogUrl": "https://seco.cs.aalto.fi/projects/finestsampo/",
-      "aboutThePortal": "About the Portal"
+      "aboutThePortal": "About the Portal",
+      "aboutUrl": "https://seco.cs.aalto.fi/projects/finestsampo/about.pdf"
     },
     "searchBarPlaceHolder": "Search all content",
     "searchBarPlaceHolderShort": "Search",
-    "instructions": "instructions"
+    "instructions": "instructions",
+    "instructionsUrl": "https://seco.cs.aalto.fi/projects/finestsampo/finestsampo-instructions.pdf"
   },
   "facetBar": {
     "results": "Results",

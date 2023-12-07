@@ -60,7 +60,7 @@
       "hideLogoTextOnMobile": true,
       "showLanguageButton": true,
       "feedbackLink": "https://link.webropolsurveys.com/...",
-      "externalInstructions": false,
+      "externalInstructions": true,
       "instructions": false,
       "info": true,
       "feedback": false,
@@ -71,8 +71,9 @@
       "infoDropdown": [
         {
           "id": "about",
+          "externalLink": true,
           "translatedText": "aboutThePortal",
-          "internalLink": "/about"
+          "translatedUrl": "aboutUrl"
         },
         {
           "id": "blog",
