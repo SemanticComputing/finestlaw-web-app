@@ -95,11 +95,6 @@
     "prefLabel": {
       "sortByPredicate": "skos:prefLabel"
     },
-    "textSearch": {
-      "containerClass": "one",
-      "facetType": "text",
-      "filterType": "textFilter"
-    },
     "keyword": {
       "containerClass": "ten",
       "facetType": "hierarchical",
